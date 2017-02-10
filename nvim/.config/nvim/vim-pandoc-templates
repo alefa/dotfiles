@@ -1,0 +1,3 @@
+myodt|odt --reference-odt=myreference.odt
+mypdf|pdf --template=~/Templates/mytemplate.latex
+simple_pdf|pdf --template simple.latex

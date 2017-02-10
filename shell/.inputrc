@@ -1,0 +1,20 @@
+$include /etc/inputrc
+set editing-mode vi
+set show-mode-in-prompt on
+set vi-ins-mode-string +
+set vi-cmd-mode-string :
+
+$if mode=vi
+    set keymap vi-command
+    # these are for vi-command mode
+    Control-l: clear-screen
+	# "jk": vi-insertion-mode
+    set keymap vi-insert
+    # these are for vi-insert mode
+    Control-l: clear-screen 
+	# "jk": vi-movement-mode
+	Control-p: history-search-backward
+$endif
+
+set show-all-if-ambiguous on
+set completion-ignore-case on
