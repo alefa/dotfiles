@@ -13,7 +13,7 @@ syntax on
 
 " Use vim-plug to manage plugins -------------------- {{{2
 
-call plug#begin('~/.vim/plugged')
+call plug#begin('~/.config/nvim/plugged')
 
 " List plugins to be managed:
 Plug 'cohama/lexima.vim'            " Automatically insert closing brackets, quotation marks etc.
