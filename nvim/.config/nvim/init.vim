@@ -38,9 +38,10 @@ Plug 'lervag/vimtex'                  " Edit and compile LaTeX files
 Plug 'junegunn/vim-easy-align'        " Easily align columns
 Plug 'dhruvasagar/vim-table-mode'     " Easily create plain-text tables
 Plug 'qpkorr/vim-bufkill'             " Keep split windows open when closing buffers
-Plug 'morhetz/gruvbox'                " Nice color scheme
 Plug 'vim-airline/vim-airline'        " Pretty status line
 Plug 'vim-airline/vim-airline-themes' " Airline color themes
+Plug 'rakr/vim-one'
+
 
 call plug#end()
 
@@ -51,7 +52,7 @@ if has('termguicolors')
 endif
 
 set background=dark
-colorscheme gruvbox
+colorscheme one
 
 " Use italics in the terminal:
 set t_ZH=[3m
@@ -145,23 +146,23 @@ let g:netrw_browsex_viewer= "xdg-open"
 
 " Neovim-specific settings:
 if has('nvim')
-	" Terminal colors (gruvbox dark, alternatives base16-ocean and base16-tomorrow):
-	let g:terminal_color_0  = '#282828' " '#2b303b' '#1d1f21'
-	let g:terminal_color_1  = '#cc241d' " '#bf616a' '#cc6666'
-	let g:terminal_color_2  = '#98971a' " '#a3be8c' '#b5bd68'
-	let g:terminal_color_3  = '#d79921' " '#ebcb8b' '#f0c674'
-	let g:terminal_color_4  = '#458588' " '#8fa1b3' '#81a2be'
-	let g:terminal_color_5  = '#b16286' " '#b48ead' '#b294bb'
-	let g:terminal_color_6  = '#689d6a' " '#96b5b4' '#8abeb7'
-	let g:terminal_color_7  = '#a89984' " '#c0c5ce' '#c5c8c6'
-	let g:terminal_color_8  = '#928374' " '#65737e' '#969896'
-	let g:terminal_color_9  = '#fb4934' " '#bf616a' '#cc6666'
-	let g:terminal_color_10 = '#b8bb26' " '#a3be8c' '#b5bd68'
-	let g:terminal_color_11 = '#fabd2f' " '#ebcb8b' '#f0c674'
-	let g:terminal_color_12 = '#83a598' " '#8fa1b3' '#81a2be'
-	let g:terminal_color_13 = '#d3869b' " '#b48ead' '#b294bb'
-	let g:terminal_color_14 = '#8ec07c' " '#96b5b4' '#8abeb7'
-	let g:terminal_color_15 = '#ebdbb2' " '#eff1f5' '#ffffff'
+	" Terminal colors (one dark, base16-ocean and base16-tomorrow):
+	let g:terminal_color_0  = '#000000' " '#2b303b' '#1d1f21'
+	let g:terminal_color_1  = '#E06C75' " '#bf616a' '#cc6666'
+	let g:terminal_color_2  = '#98c379' " '#a3be8c' '#b5bd68'
+	let g:terminal_color_3  = '#d19a66' " '#ebcb8b' '#f0c674'
+	let g:terminal_color_4  = '#61aeee' " '#8fa1b3' '#81a2be'
+	let g:terminal_color_5  = '#c678dd' " '#b48ead' '#b294bb'
+	let g:terminal_color_6  = '#56b6c2' " '#96b5b4' '#8abeb7'
+	let g:terminal_color_7  = '#abb2bf' " '#c0c5ce' '#c5c8c6'
+	let g:terminal_color_8  = '#5c6370' " '#65737e' '#969896'
+	let g:terminal_color_9  = '#e06c75' " '#bf616a' '#cc6666'
+	let g:terminal_color_10 = '#98c379' " '#a3be8c' '#b5bd68'
+	let g:terminal_color_11 = '#d19a66' " '#ebcb8b' '#f0c674'
+	let g:terminal_color_12 = '#62afee' " '#8fa1b3' '#81a2be'
+	let g:terminal_color_13 = '#c678dd' " '#b48ead' '#b294bb'
+	let g:terminal_color_14 = '#56b6c2' " '#96b5b4' '#8abeb7'
+	let g:terminal_color_15 = '#ffffff' " '#eff1f5' '#ffffff'
 	let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1 " Change cursor shape in insert mode
 	set inccommand="nosplit"            " Show effects of substitution while typing
 endif
@@ -459,3 +460,5 @@ let g:airline#extensions#tabline#show_buffers = 1
 let g:airline#extensions#tabline#buffer_min_count = 1
 " Show buffer numbers in bufferline:
 let g:airline#extensions#tabline#buffer_nr_show = 1
+" Custom Airline theme:
+let g:airline_theme = 'one'
