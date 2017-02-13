@@ -192,3 +192,5 @@ bind TAB:menu-complete
 
 # When given a directory name, cd to it:
 shopt -s autocd
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

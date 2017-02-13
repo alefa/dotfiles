@@ -40,7 +40,9 @@ Plug 'dhruvasagar/vim-table-mode'     " Easily create plain-text tables
 Plug 'qpkorr/vim-bufkill'             " Keep split windows open when closing buffers
 Plug 'vim-airline/vim-airline'        " Pretty status line
 Plug 'vim-airline/vim-airline-themes' " Airline color themes
-Plug 'rakr/vim-one'
+Plug 'rakr/vim-one'                   " Nice color scheme
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder
+Plug 'junegunn/fzf.vim'               " Vim integration for fzf
 
 
 call plug#end()
@@ -121,10 +123,10 @@ augroup novsbell
 augroup END
 
 " Always set working directory to the location of the currently edited file:
-augroup setwd
-	autocmd!
-	autocmd BufEnter * silent! lcd %:p:h
-augroup END
+" augroup setwd
+" 	autocmd!
+" 	autocmd BufEnter * silent! lcd %:p:h
+" augroup END
 
 " Don't use backup and swap files:
 set nobackup
