@@ -16,29 +16,31 @@ syntax on
 call plug#begin('~/.config/nvim/plugged')
 
 " List plugins to be managed:
-Plug 'cohama/lexima.vim'            " Automatically insert closing brackets, quotation marks etc.
-Plug 'tpope/vim-surround'           " Surround text by pairs of delimiters
-Plug 'tpope/vim-fugitive'           " Git integration
-Plug 'vim-pandoc/vim-pandoc'        " Call Pandoc from Vim
-Plug 'vim-pandoc/vim-pandoc-syntax' " Syntax highlighting for Pandoc's Markdown variant
-Plug 'jalvesaq/Nvim-R'              " Send commands to the R console from Vim and much more
-Plug 'tpope/vim-repeat'             " Make more things repeatable with the dot command
-Plug 'kshenoy/vim-signature'        " Show marks in the margin
-Plug 'tpope/vim-unimpaired'         " Lots of useful key bindings
-Plug 'tpope/vim-commentary'         " Comment and uncomment code
-Plug 'SirVer/ultisnips'             " Easily insert often used snippets of text
-Plug 'jeetsukumaran/vim-filebeagle' " Simple file browser, less buggy than netrw
-Plug 'junegunn/goyo.vim'            " Distraction-free writing mode
-Plug 'kana/vim-textobj-user'        " Easy definition of additional text objects
-Plug 'kana/vim-textobj-indent'      " Text objects based on indentation; requires vim-textobj-user
-Plug 'kana/vim-textobj-line'        " Current-line text objects; requires vim-textobj-user
-Plug 'b4winckler/vim-angry'         " Function argument text object
-Plug 'sjl/gundo.vim'                " Visualize the undo tree
-Plug 'lervag/vimtex'                " Edit and compile LaTeX files
-Plug 'junegunn/vim-easy-align'      " Easily align columns
-Plug 'dhruvasagar/vim-table-mode'   " Easily create plain-text tables
-Plug 'qpkorr/vim-bufkill'           " Keep split windows open when closing buffers
-Plug 'ap/vim-buftabline'            " Show buffer line at the top
+Plug 'cohama/lexima.vim'              " Automatically insert closing brackets, quotation marks etc.
+Plug 'tpope/vim-surround'             " Surround text by pairs of delimiters
+Plug 'tpope/vim-fugitive'             " Git integration
+Plug 'vim-pandoc/vim-pandoc'          " Call Pandoc from Vim
+Plug 'vim-pandoc/vim-pandoc-syntax'   " Syntax highlighting for Pandoc's Markdown variant
+Plug 'jalvesaq/Nvim-R'                " Send commands to the R console from Vim and much more
+Plug 'tpope/vim-repeat'               " Make more things repeatable with the dot command
+Plug 'kshenoy/vim-signature'          " Show marks in the margin
+Plug 'tpope/vim-unimpaired'           " Lots of useful key bindings
+Plug 'tpope/vim-commentary'           " Comment and uncomment code
+Plug 'SirVer/ultisnips'               " Easily insert often used snippets of text
+Plug 'jeetsukumaran/vim-filebeagle'   " Simple file browser, less buggy than netrw
+Plug 'junegunn/goyo.vim'              " Distraction-free writing mode
+Plug 'kana/vim-textobj-user'          " Easy definition of additional text objects
+Plug 'kana/vim-textobj-indent'        " Text objects based on indentation; requires vim-textobj-user
+Plug 'kana/vim-textobj-line'          " Current-line text objects; requires vim-textobj-user
+Plug 'b4winckler/vim-angry'           " Function argument text object
+Plug 'sjl/gundo.vim'                  " Visualize the undo tree
+Plug 'lervag/vimtex'                  " Edit and compile LaTeX files
+Plug 'junegunn/vim-easy-align'        " Easily align columns
+Plug 'dhruvasagar/vim-table-mode'     " Easily create plain-text tables
+Plug 'qpkorr/vim-bufkill'             " Keep split windows open when closing buffers
+Plug 'morhetz/gruvbox'                " Nice color scheme
+Plug 'vim-airline/vim-airline'        " Pretty status line
+Plug 'vim-airline/vim-airline-themes' " Airline color themes
 
 call plug#end()
 
@@ -49,7 +51,7 @@ if has('termguicolors')
 endif
 
 set background=dark
-colorscheme base16-ocean
+colorscheme gruvbox
 
 " Use italics in the terminal:
 set t_ZH=[3m
@@ -78,7 +80,7 @@ set splitright              " Vertical splits to the right of the current one (d
 set modeline                " For security reasons, modeline is off by default in Debian and Ubuntu
 set lazyredraw              " Pause redrawing the screen when executing macros and functions
 set virtualedit=block       " Allow moving the cursor outside of the text in visual block mode
-" set noshowmode              " Turn indicator for insert, visual and replace mode off
+set noshowmode              " Turn indicator for insert, visual and replace mode off
 " set ruler                   " Show cursor position (line, column) at the bottom
 
 " Jump to the last position when reopening a file:
@@ -143,38 +145,38 @@ let g:netrw_browsex_viewer= "xdg-open"
 
 " Neovim-specific settings:
 if has('nvim')
-	" Terminal colors (base16-ocean, alternative base16-tomorrow):
-	let g:terminal_color_0  = '#2b303b' " '#1d1f21'
-	let g:terminal_color_1  = '#bf616a' " '#cc6666'
-	let g:terminal_color_2  = '#a3be8c' " '#b5bd68'
-	let g:terminal_color_3  = '#ebcb8b' " '#f0c674'
-	let g:terminal_color_4  = '#8fa1b3' " '#81a2be'
-	let g:terminal_color_5  = '#b48ead' " '#b294bb'
-	let g:terminal_color_6  = '#96b5b4' " '#8abeb7'
-	let g:terminal_color_7  = '#c0c5ce' " '#c5c8c6'
-	let g:terminal_color_8  = '#65737e' " '#969896'
-	let g:terminal_color_9  = '#bf616a' " '#cc6666'
-	let g:terminal_color_10 = '#a3be8c' " '#b5bd68'
-	let g:terminal_color_11 = '#ebcb8b' " '#f0c674'
-	let g:terminal_color_12 = '#8fa1b3' " '#81a2be'
-	let g:terminal_color_13 = '#b48ead' " '#b294bb'
-	let g:terminal_color_14 = '#96b5b4' " '#8abeb7'
-	let g:terminal_color_15 = '#eff1f5' " '#ffffff'
+	" Terminal colors (gruvbox dark, alternatives base16-ocean and base16-tomorrow):
+	let g:terminal_color_0  = '#282828' " '#2b303b' '#1d1f21'
+	let g:terminal_color_1  = '#cc241d' " '#bf616a' '#cc6666'
+	let g:terminal_color_2  = '#98971a' " '#a3be8c' '#b5bd68'
+	let g:terminal_color_3  = '#d79921' " '#ebcb8b' '#f0c674'
+	let g:terminal_color_4  = '#458588' " '#8fa1b3' '#81a2be'
+	let g:terminal_color_5  = '#b16286' " '#b48ead' '#b294bb'
+	let g:terminal_color_6  = '#689d6a' " '#96b5b4' '#8abeb7'
+	let g:terminal_color_7  = '#a89984' " '#c0c5ce' '#c5c8c6'
+	let g:terminal_color_8  = '#928374' " '#65737e' '#969896'
+	let g:terminal_color_9  = '#fb4934' " '#bf616a' '#cc6666'
+	let g:terminal_color_10 = '#b8bb26' " '#a3be8c' '#b5bd68'
+	let g:terminal_color_11 = '#fabd2f' " '#ebcb8b' '#f0c674'
+	let g:terminal_color_12 = '#83a598' " '#8fa1b3' '#81a2be'
+	let g:terminal_color_13 = '#d3869b' " '#b48ead' '#b294bb'
+	let g:terminal_color_14 = '#8ec07c' " '#96b5b4' '#8abeb7'
+	let g:terminal_color_15 = '#ebdbb2' " '#eff1f5' '#ffffff'
 	let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1 " Change cursor shape in insert mode
 	set inccommand="nosplit"            " Show effects of substitution while typing
 endif
 
 " Status line ------------------------------ {{{2
 
-set statusline=                               " Clear the statusline
-set statusline+=\ %f\                         " File name
-set statusline+=%h%m%r%w\                     " Flags: help, modified, readonly, preview window
-set statusline+=[%{strlen(&ft)?&ft:'none'},\  " Filetype
-set statusline+=%{strlen(&fenc)?&fenc:&enc},\ " Encoding
-set statusline+=%{&fileformat}]               " File format
-set statusline+=%=                            " Right align
-set statusline+=%{fugitive#statusline()}\ \ \ " Git status
-set statusline+=line\ %l\/%L\                 " Line number and total no. lines
+" set statusline=                               " Clear the statusline
+" set statusline+=\ %f\                         " File name
+" set statusline+=%h%m%r%w\                     " Flags: help, modified, readonly, preview window
+" set statusline+=[%{strlen(&ft)?&ft:'none'},\  " Filetype
+" set statusline+=%{strlen(&fenc)?&fenc:&enc},\ " Encoding
+" set statusline+=%{&fileformat}]               " File format
+" set statusline+=%=                            " Right align
+" set statusline+=%{fugitive#statusline()}\ \ \ " Git status
+" set statusline+=line\ %l\/%L\                 " Line number and total no. lines
 
 " File type-specific settings ------------------------------- {{{2
 
@@ -244,7 +246,7 @@ nnoremap <silent> j :<c-u>call LineMotion("j")<cr>
 nnoremap <silent> k :<c-u>call LineMotion("k")<cr>
 
 " Edit .vimrc:
-nnoremap <Leader>v :edit ~/.config/nvim/init.vim<CR>
+nnoremap <Leader>v :edit ~/dotfiles/nvim/.config/nvim/init.vim<CR>
 " Reload .vimrc:
 nnoremap <F8> :source $MYVIMRC<CR>
 
@@ -347,21 +349,21 @@ nnoremap <F10> :! ./%:r<cr>
 
 " Misc options:
 let R_in_buffer = 1 " Run R in a Neovim buffer
-let R_vsplit = 0 " Open R console in a vertical split
+let R_vsplit = 1 " Open R console in a vertical split
 let R_hl_term = 0 " Use syntax highlighting in the R console
 let R_esc_term = 0 " Use Escape to switch to normal model in the terminal buffer
 " Disabled because it interferes with the terminal's vi mode.
 let R_notmuxconf = 1 " Don't use a specially built tmux configuration file
 let R_assign = 0 " Don't replace underscore by assign arrow
-let R_nvimpager = "horizontal"
+let R_nvimpager = "horizontal" " Open R help in a horizontal or vertical split
 let R_source_args = "max.deparse.length = 300, echo = TRUE" " Arguments to R's source() function
 let R_objbr_w = 30 " Default width of object browser window
 let R_rconsole_height = 30 " Default height of R console window
-let R_objbr_opendf = 0
-let R_objbr_openlist = 0
-let R_openpdf = 1
-let R_openhtml = 1
-let R_pdfviewer = "okular"
+let R_objbr_opendf = 0 " Unfold names of data frame columns in the object browser
+let R_objbr_openlist = 0 " Unfold list components in the object browser
+let R_openpdf = 1 " Open PDF after knitting
+let R_openhtml = 1 " Open HTML after knitting
+let R_pdfviewer = "okular" " PDF viewer to use
 
 " Custom shortcuts for frequently used R commands:
 map <silent> <LocalLeader>mh :call RAction("head")<CR>
@@ -416,21 +418,6 @@ let g:goyo_height=95
 
 nnoremap <Leader>gg :Goyo<CR>
 
-function! s:goyo_enter()
-	let g:buftabline_show=0
-	call buftabline#update(0)
-	set showtabline=0
-endfunction
-
-function! s:goyo_leave()
-	set showtabline=1
-	let g:buftabline_show=2
-	call buftabline#update(0)
-endfunction
-
-autocmd! User GoyoEnter nested call <SID>goyo_enter()
-autocmd! User GoyoLeave nested call <SID>goyo_leave()
-
 " Gundo ------------------------------ {{{2
 
 nnoremap <Leader>u :GundoToggle<CR>
@@ -454,6 +441,21 @@ let g:table_mode_header_fillchar="="
 
 nnoremap <Leader>k :BD<CR>
 
-" Buftabline -------------------------------- {{{2
+" Airline -------------------------------- {{{2
 
-let g:buftabline_numbers=1
+" Disable warning about trailing whitespaces:
+let g:airline#extensions#whitespace#enabled = 0
+" Use powerline fonts:
+let g:airline_powerline_fonts = 1
+" Enable the list of buffers/tabs at the top of the window:
+let g:airline#extensions#tabline#enabled = 1
+" Enable/disable displaying tabs, regardless of number:
+let g:airline#extensions#tabline#show_tabs = 1
+" Show just the filename, no path:
+let g:airline#extensions#tabline#fnamemod = ':t'
+" Enable/disable displaying buffers with a single tab:
+let g:airline#extensions#tabline#show_buffers = 1
+" Configure the minimum number of buffers needed to show the tabline:
+let g:airline#extensions#tabline#buffer_min_count = 1
+" Show buffer numbers in bufferline:
+let g:airline#extensions#tabline#buffer_nr_show = 1
