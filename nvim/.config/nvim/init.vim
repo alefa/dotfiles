@@ -43,6 +43,7 @@ Plug 'vim-airline/vim-airline-themes' " Airline color themes
 Plug 'rakr/vim-one'                   " Nice color scheme
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder
 Plug 'junegunn/fzf.vim'               " Vim integration for fzf
+Plug 'airblade/vim-rooter'            " Set Vim's working directory to git project root
 
 
 call plug#end()
@@ -464,3 +465,14 @@ let g:airline#extensions#tabline#buffer_min_count = 1
 let g:airline#extensions#tabline#buffer_nr_show = 1
 " Custom Airline theme:
 let g:airline_theme = 'one'
+
+" fzf.vim -------------------------------- {{{2
+
+nnoremap <silent> <Leader>f :Files<CR>
+nnoremap <silent> <Leader>b :Buffers<CR>
+
+" vim-rooter -------------------------------- {{{2
+
+" Change working directory to file's directory if it's not part of a git
+" project:
+let g:rooter_change_directory_for_non_project_files = 'current'
