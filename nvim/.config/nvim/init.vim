@@ -471,8 +471,17 @@ let g:airline_theme = 'one'
 nnoremap <silent> <Leader>f :Files<CR>
 nnoremap <silent> <Leader>b :Buffers<CR>
 
-" vim-rooter -------------------------------- {{{2
+" Vim-rooter -------------------------------- {{{2
 
 " Change working directory to file's directory if it's not part of a git
 " project:
 let g:rooter_change_directory_for_non_project_files = 'current'
+" Don't print a message when changing working directory:
+let g:rooter_silent_chdir = 1
+" Resolve symbolic links:
+let g:rooter_resolve_links = 1
+
+" Filebeagle -------------------------------- {{{2
+
+let g:filebeagle_suppress_keymaps = 1
+map <silent> -          <Plug>FileBeagleOpenCurrentBufferDir
