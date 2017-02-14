@@ -11,7 +11,7 @@ runtime! debian.vim
 " line enables syntax highlighting by default.
 syntax on
 
-" Use vim-plug to manage plugins -------------------- {{{2
+" Use Vim-plug to manage plugins -------------------- {{{2
 
 call plug#begin('~/.config/nvim/plugged')
 
@@ -44,7 +44,6 @@ Plug 'rakr/vim-one'                   " Nice color scheme
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder
 Plug 'junegunn/fzf.vim'               " Vim integration for fzf
 Plug 'airblade/vim-rooter'            " Set Vim's working directory to git project root
-
 
 call plug#end()
 
@@ -468,8 +467,8 @@ let g:airline_theme = 'one'
 
 " fzf.vim -------------------------------- {{{2
 
-nnoremap <silent> <Leader>f :Files<CR>
-nnoremap <silent> <Leader>b :Buffers<CR>
+nnoremap <silent> <Leader>ff :Files<CR>
+nnoremap <silent> <Leader>fb :Buffers<CR>
 
 " Vim-rooter -------------------------------- {{{2
 
