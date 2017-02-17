@@ -169,6 +169,12 @@ if has('nvim')
 	set inccommand="nosplit"            " Show effects of substitution while typing
 endif
 
+" Use Ag (the Silver Searcher) as grep program if it is installed:
+if executable('ag')
+    set grepprg=ag\ --nogroup\ --nocolor\ --column
+    set grepformat=%f:%l:%c%m
+endif
+
 " Status line ------------------------------ {{{2
 
 " set statusline=                               " Clear the statusline
