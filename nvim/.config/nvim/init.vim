@@ -32,6 +32,7 @@ Plug 'junegunn/goyo.vim'              " Distraction-free writing mode
 Plug 'kana/vim-textobj-user'          " Easy definition of additional text objects
 Plug 'kana/vim-textobj-indent'        " Text objects based on indentation; requires vim-textobj-user
 Plug 'kana/vim-textobj-line'          " Current-line text objects; requires vim-textobj-user
+Plug 'kana/vim-textobj-fold'          " Text objects for folding
 Plug 'b4winckler/vim-angry'           " Function argument text object
 Plug 'sjl/gundo.vim'                  " Visualize the undo tree
 Plug 'lervag/vimtex'                  " Edit and compile LaTeX files
@@ -44,7 +45,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder
 Plug 'junegunn/fzf.vim'               " Vim integration for fzf
 Plug 'airblade/vim-rooter'            " Set Vim's working directory to git project root
 Plug 'lifepillar/vim-solarized8'      " Truecolor version of the Solarized colour scheme
-
+Plug 'rakr/vim-one'                   " Atom's default colour scheme
 
 call plug#end()
 
@@ -60,6 +61,29 @@ colorscheme solarized8_light
 " Use italics in the terminal:
 set t_ZH=[3m
 set t_ZR=[23m
+
+" Neovim-specific settings:
+if has('nvim')
+	" Terminal colors (one dark, solarized light, base16-ocean and base16-tomorrow):
+	let g:terminal_color_0  = '#073642' " '#2b303b' '#000000' '#1d1f21'
+	let g:terminal_color_1  = '#dc322f' " '#bf616a' '#E06C75' '#cc6666'
+	let g:terminal_color_2  = '#859900' " '#a3be8c' '#98c379' '#b5bd68'
+	let g:terminal_color_3  = '#b58900' " '#ebcb8b' '#d19a66' '#f0c674'
+	let g:terminal_color_4  = '#268bd2' " '#8fa1b3' '#61aeee' '#81a2be'
+	let g:terminal_color_5  = '#d33682' " '#b48ead' '#c678dd' '#b294bb'
+	let g:terminal_color_6  = '#2aa198' " '#96b5b4' '#56b6c2' '#8abeb7'
+	let g:terminal_color_7  = '#eee8d5' " '#c0c5ce' '#abb2bf' '#c5c8c6'
+	let g:terminal_color_8  = '#002b36' " '#65737e' '#5c6370' '#969896'
+	let g:terminal_color_9  = '#cb4b16' " '#bf616a' '#e06c75' '#cc6666'
+	let g:terminal_color_10 = '#586e75' " '#a3be8c' '#98c379' '#b5bd68'
+	let g:terminal_color_11 = '#657b83' " '#ebcb8b' '#d19a66' '#f0c674'
+	let g:terminal_color_12 = '#839496' " '#8fa1b3' '#62afee' '#81a2be'
+	let g:terminal_color_13 = '#6c71c4' " '#b48ead' '#c678dd' '#b294bb'
+	let g:terminal_color_14 = '#93a1a1' " '#96b5b4' '#56b6c2' '#8abeb7'
+	let g:terminal_color_15 = '#fdf6e3' " '#eff1f5' '#ffffff' '#ffffff'
+	let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1 " Change cursor shape in insert mode
+endif
+
 
 " Basic settings --------------------------- {{{2
 set number                  " Absolute line numbers
@@ -149,24 +173,6 @@ let g:netrw_browsex_viewer= "xdg-open"
 
 " Neovim-specific settings:
 if has('nvim')
-	" Terminal colors (solarized light, one dark, base16-ocean and base16-tomorrow):
-	let g:terminal_color_0  = '#073642' " '#000000' '#2b303b' '#1d1f21'
-	let g:terminal_color_1  = '#dc322f' " '#E06C75' '#bf616a' '#cc6666'
-	let g:terminal_color_2  = '#859900' " '#98c379' '#a3be8c' '#b5bd68'
-	let g:terminal_color_3  = '#b58900' " '#d19a66' '#ebcb8b' '#f0c674'
-	let g:terminal_color_4  = '#268bd2' " '#61aeee' '#8fa1b3' '#81a2be'
-	let g:terminal_color_5  = '#d33682' " '#c678dd' '#b48ead' '#b294bb'
-	let g:terminal_color_6  = '#2aa198' " '#56b6c2' '#96b5b4' '#8abeb7'
-	let g:terminal_color_7  = '#eee8d5' " '#abb2bf' '#c0c5ce' '#c5c8c6'
-	let g:terminal_color_8  = '#002b36' " '#5c6370' '#65737e' '#969896'
-	let g:terminal_color_9  = '#cb4b16' " '#e06c75' '#bf616a' '#cc6666'
-	let g:terminal_color_10 = '#586e75' " '#98c379' '#a3be8c' '#b5bd68'
-	let g:terminal_color_11 = '#657b83' " '#d19a66' '#ebcb8b' '#f0c674'
-	let g:terminal_color_12 = '#839496' " '#62afee' '#8fa1b3' '#81a2be'
-	let g:terminal_color_13 = '#6c71c4' " '#c678dd' '#b48ead' '#b294bb'
-	let g:terminal_color_14 = '#93a1a1' " '#56b6c2' '#96b5b4' '#8abeb7'
-	let g:terminal_color_15 = '#fdf6e3' " '#ffffff' '#eff1f5' '#ffffff'
-	let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1 " Change cursor shape in insert mode
 	set inccommand="nosplit"            " Show effects of substitution while typing
 endif
 
