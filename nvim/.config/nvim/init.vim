@@ -44,7 +44,6 @@ Plug 'vim-airline/vim-airline-themes' " Airline color themes
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder
 Plug 'junegunn/fzf.vim'               " Vim integration for fzf
 Plug 'airblade/vim-rooter'            " Set Vim's working directory to git project root
-Plug 'rakr/vim-one'                   " Atom's default colour scheme
 
 call plug#end()
 
@@ -55,7 +54,7 @@ if has('termguicolors')
 endif
 
 set background=dark
-colorscheme one
+colorscheme base16-ocean
 
 " Use italics in the terminal:
 set t_ZH=[3m
@@ -63,23 +62,23 @@ set t_ZR=[23m
 
 " Neovim-specific settings:
 if has('nvim')
-	" Terminal colors (one dark, base16-ocean, base16-tomorrow):
-	let g:terminal_color_0  = '#000000' " '#2b303b' '#1d1f21'
-	let g:terminal_color_1  = '#E06C75' " '#bf616a' '#cc6666'
-	let g:terminal_color_2  = '#98c379' " '#a3be8c' '#b5bd68'
-	let g:terminal_color_3  = '#d19a66' " '#ebcb8b' '#f0c674'
-	let g:terminal_color_4  = '#61aeee' " '#8fa1b3' '#81a2be'
-	let g:terminal_color_5  = '#c678dd' " '#b48ead' '#b294bb'
-	let g:terminal_color_6  = '#56b6c2' " '#96b5b4' '#8abeb7'
-	let g:terminal_color_7  = '#abb2bf' " '#c0c5ce' '#c5c8c6'
-	let g:terminal_color_8  = '#5c6370' " '#65737e' '#969896'
-	let g:terminal_color_9  = '#e06c75' " '#bf616a' '#cc6666'
-	let g:terminal_color_10 = '#98c379' " '#a3be8c' '#b5bd68'
-	let g:terminal_color_11 = '#d19a66' " '#ebcb8b' '#f0c674'
-	let g:terminal_color_12 = '#62afee' " '#8fa1b3' '#81a2be'
-	let g:terminal_color_13 = '#c678dd' " '#b48ead' '#b294bb'
-	let g:terminal_color_14 = '#56b6c2' " '#96b5b4' '#8abeb7'
-	let g:terminal_color_15 = '#ffffff' " '#eff1f5' '#ffffff'
+	" Terminal colors (base16-ocean, base16-tomorrow):
+	let g:terminal_color_0  = '#2b303b' " '#1d1f21'
+	let g:terminal_color_1  = '#bf616a' " '#cc6666'
+	let g:terminal_color_2  = '#a3be8c' " '#b5bd68'
+	let g:terminal_color_3  = '#ebcb8b' " '#f0c674'
+	let g:terminal_color_4  = '#8fa1b3' " '#81a2be'
+	let g:terminal_color_5  = '#b48ead' " '#b294bb'
+	let g:terminal_color_6  = '#96b5b4' " '#8abeb7'
+	let g:terminal_color_7  = '#c0c5ce' " '#c5c8c6'
+	let g:terminal_color_8  = '#65737e' " '#969896'
+	let g:terminal_color_9  = '#bf616a' " '#cc6666'
+	let g:terminal_color_10 = '#a3be8c' " '#b5bd68'
+	let g:terminal_color_11 = '#ebcb8b' " '#f0c674'
+	let g:terminal_color_12 = '#8fa1b3' " '#81a2be'
+	let g:terminal_color_13 = '#b48ead' " '#b294bb'
+	let g:terminal_color_14 = '#96b5b4' " '#8abeb7'
+	let g:terminal_color_15 = '#eff1f5' " '#ffffff'
 	let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1 " Change cursor shape in insert mode
 endif
 
@@ -479,8 +478,6 @@ let g:airline#extensions#tabline#buffer_nr_show = 1
 let g:airline#extensions#wordcount#enabled = 1
 " Specify file types for word count:
 let g:airline#extensions#wordcount#filetypes = '\vhelp|markdown|pandoc|rst|org|text|asciidoc|tex|mail'
-" Custom Airline theme:
-let g:airline_theme = 'one'
 
 " fzf.vim -------------------------------- {{{2
 
