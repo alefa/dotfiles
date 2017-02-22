@@ -58,7 +58,7 @@ fi
 
 if [ "$color_prompt" = yes ]; then
 	# Red bold prompt with working directory in blue and git branch in purple:
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[1;31m\]\u@\h\[\033[00m\]:\[\033[0;34m\]\W\[\033[00m\]\[\033[0;32m\]$(__git_ps1 "(%s)")\[\033[00m\]\$ '
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[1;31m\]\u@\h\[\033[00m\]:\[\033[0;34m\]\W\[\033[00m\]\[\033[0;35m\]$(__git_ps1 "(%s)")\[\033[00m\]\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\W$(__git_ps1 "(%s)")\$ '
 fi
@@ -178,10 +178,10 @@ export PAGER=less
 
 # Enable coloured man pages:
 man() {
-    env LESS_TERMCAP_md=$'\E[1;35m' \
+    env LESS_TERMCAP_md=$'\E[01;34m' \
     LESS_TERMCAP_me=$'\E[0m' \
     LESS_TERMCAP_se=$'\E[0m' \
-    LESS_TERMCAP_so=$'\E[1;34m' \
+    LESS_TERMCAP_so=$'\E[0;31m' \
     LESS_TERMCAP_ue=$'\E[0m' \
     LESS_TERMCAP_us=$'\E[00;35m' \
     man "$@"
