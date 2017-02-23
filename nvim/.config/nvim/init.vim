@@ -63,23 +63,23 @@ set t_ZR=[23m
 
 " Neovim-specific settings:
 if has('nvim')
-	" Terminal colors (solarized light, base16-ocean, base16-tomorrow):
-	let g:terminal_color_0  = '#073642' " '#2b303b' '#1d1f21'
-	let g:terminal_color_1  = '#dc322f' " '#bf616a' '#cc6666'
-	let g:terminal_color_2  = '#859900' " '#a3be8c' '#b5bd68'
-	let g:terminal_color_3  = '#b58900' " '#ebcb8b' '#f0c674'
-	let g:terminal_color_4  = '#268bd2' " '#8fa1b3' '#81a2be'
-	let g:terminal_color_5  = '#d33682' " '#b48ead' '#b294bb'
-	let g:terminal_color_6  = '#2aa198' " '#96b5b4' '#8abeb7'
-	let g:terminal_color_7  = '#eee8d5' " '#c0c5ce' '#c5c8c6'
-	let g:terminal_color_8  = '#002b36' " '#65737e' '#969896'
-	let g:terminal_color_9  = '#cb4b16' " '#bf616a' '#cc6666'
-	let g:terminal_color_10 = '#586e75' " '#a3be8c' '#b5bd68'
-	let g:terminal_color_11 = '#657b83' " '#ebcb8b' '#f0c674'
-	let g:terminal_color_12 = '#839496' " '#8fa1b3' '#81a2be'
-	let g:terminal_color_13 = '#6c71c4' " '#b48ead' '#b294bb'
-	let g:terminal_color_14 = '#93a1a1' " '#96b5b4' '#8abeb7'
-	let g:terminal_color_15 = '#fdf6e3' " '#eff1f5' '#ffffff'
+	" Terminal colors (Solarized light):
+	let g:terminal_color_0  = '#073642'
+	let g:terminal_color_1  = '#dc322f'
+	let g:terminal_color_2  = '#859900'
+	let g:terminal_color_3  = '#b58900'
+	let g:terminal_color_4  = '#268bd2'
+	let g:terminal_color_5  = '#d33682'
+	let g:terminal_color_6  = '#2aa198'
+	let g:terminal_color_7  = '#eee8d5'
+	let g:terminal_color_8  = '#002b36'
+	let g:terminal_color_9  = '#cb4b16'
+	let g:terminal_color_10 = '#586e75'
+	let g:terminal_color_11 = '#657b83'
+	let g:terminal_color_12 = '#839496'
+	let g:terminal_color_13 = '#6c71c4'
+	let g:terminal_color_14 = '#93a1a1'
+	let g:terminal_color_15 = '#fdf6e3'
 	let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1 " Change cursor shape in insert mode
 endif
 
