@@ -176,17 +176,6 @@ fi
 # Set default pager (to correct an error in ranger's configuration):
 export PAGER=less
 
-# Enable coloured man pages:
-man() {
-    env LESS_TERMCAP_md=$'\E[1;35m' \
-    LESS_TERMCAP_me=$'\E[0m' \
-    LESS_TERMCAP_se=$'\E[0m' \
-    LESS_TERMCAP_so=$'\E[1;34m' \
-    LESS_TERMCAP_ue=$'\E[0m' \
-    LESS_TERMCAP_us=$'\E[00;35m' \
-    man "$@"
-}
-
 # Show a completion menu when pressing tab:
 bind TAB:menu-complete
 
