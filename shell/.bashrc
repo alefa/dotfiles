@@ -57,8 +57,8 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-	# Purple bold prompt with working directory in blue and git branch in green:
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[1;35m\]\u@\h\[\033[00m\]:\[\033[0;34m\]\W\[\033[00m\]\[\033[0;32m\]$(__git_ps1 "(%s)")\[\033[00m\]\$ '
+	# Red bold prompt with working directory in blue and git branch in purple:
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[1;31m\]\u@\h\[\033[00m\]:\[\033[0;34m\]\W\[\033[00m\]\[\033[0;35m\]$(__git_ps1 "(%s)")\[\033[00m\]\$ '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\W$(__git_ps1 "(%s)")\$ '
 fi
@@ -175,6 +175,17 @@ fi
 
 # Set default pager (to correct an error in ranger's configuration):
 export PAGER=less
+
+# Enable coloured man pages:
+man() {
+    env LESS_TERMCAP_md=$'\E[01;34m' \
+    LESS_TERMCAP_me=$'\E[0m' \
+    LESS_TERMCAP_se=$'\E[0m' \
+    LESS_TERMCAP_so=$'\E[1;31m' \
+    LESS_TERMCAP_ue=$'\E[0m' \
+    LESS_TERMCAP_us=$'\E[00;35m' \
+    man "$@"
+}
 
 # Show a completion menu when pressing tab:
 bind TAB:menu-complete
