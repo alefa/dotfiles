@@ -291,16 +291,16 @@ xnoremap * :<C-u>call <SID>VSetSearch()<CR>/<C-R>=@/<CR><CR>
 xnoremap # :<C-u>call <SID>VSetSearch()<CR>?<C-R>=@/<CR><CR>
 
 " Easier window switching:
-noremap <C-j> <C-w>j
-noremap <C-k> <C-w>k
-noremap <C-l> <C-w>l
-noremap <C-h> <C-w>h
+nnoremap <C-j> <C-w>j
+nnoremap <C-k> <C-w>k
+nnoremap <C-l> <C-w>l
+nnoremap <C-h> <C-w>h
 
-" Easier buffer switching:
-nnoremap <C-b> :ls<CR>:b<Space>
-" This displays a list of buffers and lets me select one by number or (partial) name.
-" Using the shortcut Leader-b creates a delay for some reason, so I changed it to
-" Ctrl-b.
+" Easier window resizing:
+nnoremap <C-w>+ 5<C-w>+
+nnoremap <C-w>- 5<C-w>-
+nnoremap <C-w>> 5<C-w>>
+nnoremap <C-w>< 5<C-w><
 
 " Easier saving:
 nnoremap <Leader>w :w<CR>
@@ -316,9 +316,6 @@ function! QuickfixFilenames()
 	return join(map(values(buffer_numbers), 'fnameescape(v:val)'))
 endfunction
 
-" Show a list of most recently used files and select one by number:
-nnoremap <Leader>o :browse oldfiles<CR>
-
 " Split line at cursor (the reverse operation to join lines [J])
 " Modified from Steve Losh's vimrc at https://bitbucket.org/sjl/dotfiles/src/cbbbc897e9b3/vim/vimrc
 nnoremap S i<CR><ESC>gk:silent! s/\v +$//<CR>gj^`.
@@ -332,19 +329,6 @@ nnoremap <F1> <nop>
 
 " Remove the mapping of Q (Ex mode)
 nnoremap Q <nop>
-
-" Use the Unix "find" command to find files by name and populate the quickfix list with them
-" Tip from http://vim.wikia.com/wiki/Searching_for_files
-function! FindFiles(filename)
-	let error_file = tempname()
-	silent exe '!find /home/gita -name "'.a:filename.'" | xargs file | sed "s/:/:1:/" > '.error_file
-	set errorformat=%f:%l:%m
-	exe "cfile ". error_file
-	copen
-	call delete(error_file)
-endfunction
-
-command! -nargs=1 Find call FindFiles(<q-args>)
 
 " Switch from insert to normal mode in Neovim's terminal buffer:
 if has('nvim')
