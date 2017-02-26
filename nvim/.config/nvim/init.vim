@@ -44,6 +44,7 @@ Plug 'vim-airline/vim-airline-themes' " Airline color themes
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder
 Plug 'junegunn/fzf.vim'               " Vim integration for fzf
 Plug 'airblade/vim-rooter'            " Set Vim's working directory to git project root
+Plug 'Valloric/ListToggle'            " Key bindings for toggling the quickfix and location list
 Plug 'rakr/vim-one'                   " Atom's default color scheme for Vim
 
 call plug#end()
@@ -296,11 +297,11 @@ nnoremap <C-k> <C-w>k
 nnoremap <C-l> <C-w>l
 nnoremap <C-h> <C-w>h
 
-" Easier window resizing:
-nnoremap <C-w>+ 5<C-w>+
-nnoremap <C-w>- 5<C-w>-
-nnoremap <C-w>> 5<C-w>>
-nnoremap <C-w>< 5<C-w><
+" Faster window resizing:
+nnoremap <C-w>+ 10<C-w>+
+nnoremap <C-w>- 10<C-w>-
+nnoremap <C-w>> 10<C-w>>
+nnoremap <C-w>< 10<C-w><
 
 " Easier saving:
 nnoremap <Leader>w :w<CR>
