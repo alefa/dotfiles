@@ -440,6 +440,7 @@ let g:table_mode_header_fillchar="="
 
 " Buffkill ------------------------------ {{{2
 
+let g:BufKillCreateMappings = 0 " Disable default mappings
 nnoremap <Leader>k :BD<CR>
 
 " Airline -------------------------------- {{{2
@@ -469,8 +470,8 @@ let g:airline_theme = 'one'
 
 " fzf.vim -------------------------------- {{{2
 
-nnoremap <silent> <Leader>ff :Files<CR>
-nnoremap <silent> <Leader>fb :Buffers<CR>
+nnoremap <silent> <Leader>f :Files<CR>
+nnoremap <silent> <Leader>b :Buffers<CR>
 
 " Vim-rooter -------------------------------- {{{2
 
