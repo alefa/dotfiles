@@ -349,7 +349,6 @@ nnoremap <F10> :! ./%:r<cr>
 
 " Misc options:
 let R_in_buffer = 1 " Run R in a Neovim buffer
-let R_vsplit = 1 " Open R console in a vertical split
 let R_hl_term = 0 " Use syntax highlighting in the R console
 let R_esc_term = 0 " Use Escape to switch to normal model in the terminal buffer
 " Disabled because it interferes with the terminal's vi mode.
@@ -395,12 +394,6 @@ let g:vimtex_fold_envs = 0
 let g:vimtex_latexmk_continuous = 0
 let g:vimtex_latexmk_background = 1
 let g:vimtex_quickfix_autojump = 1
-let g:vimtex_quickfix_ignored_warnings = [
-        \ 'Underfull',
-        \ 'Overfull',
-        \ 'specifier changed to',
-      \ ]
-
 let g:vimtex_view_general_viewer = 'okular'
 let g:vimtex_view_general_options = '--unique @pdf\#src:@line@tex'
 let g:vimtex_view_general_options_latexmk = '--unique'
