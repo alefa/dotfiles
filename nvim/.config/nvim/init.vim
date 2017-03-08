@@ -62,25 +62,26 @@ colorscheme one
 set t_ZH=[3m
 set t_ZR=[23m
 
+
 " Neovim-specific settings:
 if has('nvim')
-	" Terminal colors (One dark):
-	let g:terminal_color_0  = '#000000'
-	let g:terminal_color_1  = '#E06C75'
-	let g:terminal_color_2  = '#98c379'
-	let g:terminal_color_3  = '#d19a66'
-	let g:terminal_color_4  = '#61aeee'
-	let g:terminal_color_5  = '#c678dd'
-	let g:terminal_color_6  = '#56b6c2'
-	let g:terminal_color_7  = '#abb2bf'
-	let g:terminal_color_8  = '#5c6370'
-	let g:terminal_color_9  = '#e06c75'
-	let g:terminal_color_10 = '#98c379'
-	let g:terminal_color_11 = '#d19a66'
-	let g:terminal_color_12 = '#62afee'
-	let g:terminal_color_13 = '#c678dd'
-	let g:terminal_color_14 = '#56b6c2'
-	let g:terminal_color_15 = '#ffffff'
+	" Terminal colors (one dark, one light):
+	let g:terminal_color_0  = '#000000' " '#000000'
+	let g:terminal_color_1  = '#E06C75' " '#E45649'
+	let g:terminal_color_2  = '#98c379' " '#50A14F'
+	let g:terminal_color_3  = '#d19a66' " '#986801'
+	let g:terminal_color_4  = '#61aeee' " '#4078F2'
+	let g:terminal_color_5  = '#c678dd' " '#A626A4'
+	let g:terminal_color_6  = '#56b6c2' " '#0184BC'
+	let g:terminal_color_7  = '#abb2bf' " '#A0A1A7'
+	let g:terminal_color_8  = '#5c6370' " '#5c6370'
+	let g:terminal_color_9  = '#e06c75' " '#e06c75'
+	let g:terminal_color_10 = '#98c379' " '#50A14F'
+	let g:terminal_color_11 = '#d19a66' " '#986801'
+	let g:terminal_color_12 = '#62afee' " '#4078F2'
+	let g:terminal_color_13 = '#c678dd' " '#A626A4'
+	let g:terminal_color_14 = '#56b6c2' " '#0184BC'
+	let g:terminal_color_15 = '#ffffff' " '#ffffff'
 	let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1 " Change cursor shape in insert mode
 endif
 
@@ -258,8 +259,8 @@ function! LineMotion(dir)
     execute "normal! " . (v:count1 > 1 ? "m'" . v:count1 : "g") . a:dir
 endfunction
 
-nnoremap <silent> j :<c-u>call LineMotion("j")<cr>
-nnoremap <silent> k :<c-u>call LineMotion("k")<cr>
+nnoremap <silent> j :<C-u>call LineMotion("j")<CR>
+nnoremap <silent> k :<C-u>call LineMotion("k")<CR>
 
 " Edit .vimrc:
 nnoremap <Leader>v :edit ~/dotfiles/nvim/.config/nvim/init.vim<CR>
@@ -337,9 +338,9 @@ if has('nvim')
 endif
 
 " Compile the current file:
-nnoremap <F9> :make %<<cr>
+nnoremap <F9> :make %<<CR>
 " Run the executable produced from this file:
-nnoremap <F10> :! ./%:r<cr>
+nnoremap <F10> :! ./%:r<CR>
 
 " ---------------------------------------
 " Plugin settings {{{1
