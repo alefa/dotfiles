@@ -103,7 +103,7 @@ set hidden                  " Hide buffers when they are abandoned
 set gdefault                " Replace all occurences of a pattern, not just the first
 set nohlsearch              " Don't highlight search results
 set wildmode=full           " Tab completion: complete the next full match
-set listchars=tab:▸\ ,eol:¬ " Use these characters to show tabs and end-of-line characters
+set listchars=tab:▸\ ,eol:¬,space:␣ " Use these characters to show tabs and end-of-line characters
 set splitbelow              " Horizontal splits below the current one (default is above)
 set splitright              " Vertical splits to the right of the current one (default is left)
 set modeline                " For security reasons, modeline is off by default in Debian and Ubuntu

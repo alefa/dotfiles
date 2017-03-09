@@ -91,6 +91,7 @@ alias la='ls -lA'
 alias l='ls -CF'
 
 # Alias for adding files to Neovim:
+alias nvim='NVIM_LISTEN_ADDRESS=/tmp/nvimsocket nvim'
 alias v='nvr --remote'
 
 # Alias for GNU info to use vi-like key bindings:
