@@ -46,6 +46,7 @@ Plug 'junegunn/fzf.vim'               " Vim integration for fzf
 Plug 'airblade/vim-rooter'            " Set Vim's working directory to git project root
 Plug 'Valloric/ListToggle'            " Key bindings for toggling the quickfix and location list
 Plug 'rakr/vim-one'                   " Atom's default color scheme for Vim
+Plug 'freitass/todo.txt-vim'          " Todo.txt filetype plugin and mappings
 
 call plug#end()
 
@@ -103,7 +104,7 @@ set hidden                  " Hide buffers when they are abandoned
 set gdefault                " Replace all occurences of a pattern, not just the first
 set nohlsearch              " Don't highlight search results
 set wildmode=full           " Tab completion: complete the next full match
-set listchars=tab:▸\ ,eol:¬,space:␣ " Use these characters to show tabs and end-of-line characters
+set listchars=tab:▸\ ,eol:¬,space:␣ " Use these characters to show invisible characters
 set splitbelow              " Horizontal splits below the current one (default is above)
 set splitright              " Vertical splits to the right of the current one (default is left)
 set modeline                " For security reasons, modeline is off by default in Debian and Ubuntu

@@ -124,6 +124,10 @@ alias gls="git log --graph --pretty=format:'%C(yellow)%h%Creset%C(magenta)%d%Cre
 alias ggr='git grep -Ii'
 alias grv='git remote -v'
 
+# Aliases for Todo-txt:
+alias t='todo-txt'
+alias tls='todo-txt list'
+alias te='nvim ~/Documents/todo-txt/todo.txt'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
