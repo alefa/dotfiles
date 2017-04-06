@@ -38,14 +38,13 @@ Plug 'lervag/vimtex'                  " Edit and compile LaTeX files
 Plug 'junegunn/vim-easy-align'        " Easily align columns
 Plug 'dhruvasagar/vim-table-mode'     " Easily create plain-text tables
 Plug 'qpkorr/vim-bufkill'             " Keep split windows open when closing buffers
-Plug 'vim-airline/vim-airline'        " Pretty status line
-Plug 'vim-airline/vim-airline-themes' " Airline color themes
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder
 Plug 'junegunn/fzf.vim'               " Vim integration for fzf
 Plug 'airblade/vim-rooter'            " Set Vim's working directory to git project root
 Plug 'Valloric/ListToggle'            " Key bindings for toggling the quickfix and location list
 Plug 'rakr/vim-one'                   " Atom's default color scheme for Vim
 Plug 'freitass/todo.txt-vim'          " Todo.txt filetype plugin and mappings
+Plug 'ap/vim-buftabline'              " Show buffers in the tabline
 
 call plug#end()
 
@@ -55,7 +54,7 @@ if has('termguicolors')
 	set termguicolors " Use true colors (only works in NeoVim and Vim >= 8.0)
 endif
 
-set background=dark
+set background=light
 colorscheme one
 
 " Use italics in the terminal:
@@ -68,41 +67,41 @@ if has('nvim')
 
 	" Terminal colors (One dark, One light):
 
-	" " Light:
-	" let g:terminal_color_0  = '#000000'
-	" let g:terminal_color_1  = '#E45649'
-	" let g:terminal_color_2  = '#50A14F'
-	" let g:terminal_color_3  = '#986801'
-	" let g:terminal_color_4  = '#4078F2'
-	" let g:terminal_color_5  = '#A626A4'
-	" let g:terminal_color_6  = '#0184BC'
-	" let g:terminal_color_7  = '#A0A1A7'
-	" let g:terminal_color_8  = '#5c6370'
-	" let g:terminal_color_9  = '#e06c75'
-	" let g:terminal_color_10 = '#50A14F'
-	" let g:terminal_color_11 = '#986801'
-	" let g:terminal_color_12 = '#4078F2'
-	" let g:terminal_color_13 = '#A626A4'
-	" let g:terminal_color_14 = '#0184BC'
-	" let g:terminal_color_15 = '#ffffff'
-
-	" Dark:
+	" Light:
 	let g:terminal_color_0  = '#000000'
-	let g:terminal_color_1  = '#E06C75'
-	let g:terminal_color_2  = '#98c379'
-	let g:terminal_color_3  = '#d19a66'
-	let g:terminal_color_4  = '#61aeee'
-	let g:terminal_color_5  = '#c678dd'
-	let g:terminal_color_6  = '#56b6c2'
-	let g:terminal_color_7  = '#abb2bf'
+	let g:terminal_color_1  = '#E45649'
+	let g:terminal_color_2  = '#50A14F'
+	let g:terminal_color_3  = '#986801'
+	let g:terminal_color_4  = '#4078F2'
+	let g:terminal_color_5  = '#A626A4'
+	let g:terminal_color_6  = '#0184BC'
+	let g:terminal_color_7  = '#A0A1A7'
 	let g:terminal_color_8  = '#5c6370'
 	let g:terminal_color_9  = '#e06c75'
-	let g:terminal_color_10 = '#98c379'
-	let g:terminal_color_11 = '#d19a66'
-	let g:terminal_color_12 = '#62afee'
-	let g:terminal_color_13 = '#c678dd'
-	let g:terminal_color_14 = '#56b6c2'
+	let g:terminal_color_10 = '#50A14F'
+	let g:terminal_color_11 = '#986801'
+	let g:terminal_color_12 = '#4078F2'
+	let g:terminal_color_13 = '#A626A4'
+	let g:terminal_color_14 = '#0184BC'
 	let g:terminal_color_15 = '#ffffff'
+
+	" " Dark:
+	" let g:terminal_color_0  = '#000000'
+	" let g:terminal_color_1  = '#E06C75'
+	" let g:terminal_color_2  = '#98c379'
+	" let g:terminal_color_3  = '#d19a66'
+	" let g:terminal_color_4  = '#61aeee'
+	" let g:terminal_color_5  = '#c678dd'
+	" let g:terminal_color_6  = '#56b6c2'
+	" let g:terminal_color_7  = '#abb2bf'
+	" let g:terminal_color_8  = '#5c6370'
+	" let g:terminal_color_9  = '#e06c75'
+	" let g:terminal_color_10 = '#98c379'
+	" let g:terminal_color_11 = '#d19a66'
+	" let g:terminal_color_12 = '#62afee'
+	" let g:terminal_color_13 = '#c678dd'
+	" let g:terminal_color_14 = '#56b6c2'
+	" let g:terminal_color_15 = '#ffffff'
 
 	let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1 " Change cursor shape in insert mode
 endif
@@ -131,7 +130,7 @@ set splitright              " Vertical splits to the right of the current one (d
 set modeline                " For security reasons, modeline is off by default in Debian and Ubuntu
 set lazyredraw              " Pause redrawing the screen when executing macros and functions
 set virtualedit=block       " Allow moving the cursor outside of the text in visual block mode
-set noshowmode              " Turn indicator for insert, visual and replace mode off
+" set noshowmode              " Turn indicator for insert, visual and replace mode off
 " set ruler                   " Show cursor position (line, column) at the bottom
 
 " Jump to the last position when reopening a file:
@@ -207,15 +206,15 @@ endif
 
 " Status line ------------------------------ {{{2
 
-" set statusline=                               " Clear the statusline
-" set statusline+=\ %f\                         " File name
-" set statusline+=%h%m%r%w\                     " Flags: help, modified, readonly, preview window
-" set statusline+=[%{strlen(&ft)?&ft:'none'},\  " Filetype
-" set statusline+=%{strlen(&fenc)?&fenc:&enc},\ " Encoding
-" set statusline+=%{&fileformat}]               " File format
-" set statusline+=%=                            " Right align
-" set statusline+=%{fugitive#statusline()}\ \ \ " Git status
-" set statusline+=line\ %l\/%L\                 " Line number and total no. lines
+set statusline=                               " Clear the statusline
+set statusline+=\ %f\                         " File name
+set statusline+=%h%m%r%w\                     " Flags: help, modified, readonly, preview window
+set statusline+=[%{strlen(&ft)?&ft:'none'},\  " Filetype
+set statusline+=%{strlen(&fenc)?&fenc:&enc},\ " Encoding
+set statusline+=%{&fileformat}]               " File format
+set statusline+=%=                            " Right align
+set statusline+=%{fugitive#statusline()}\ \ \ " Git status
+set statusline+=line\ %l\/%L\                 " Line number and total no. lines
 
 " File type-specific settings ------------------------------- {{{2
 
@@ -287,7 +286,7 @@ nnoremap <silent> k :<C-u>call LineMotion("k")<CR>
 " Edit .vimrc:
 nnoremap <Leader>v :edit ~/dotfiles/nvim/.config/nvim/init.vim<CR>
 " Reload .vimrc:
-nnoremap <F8> :source $MYVIMRC<CR>
+nnoremap <Leader>sv :source $MYVIMRC<CR>
 
 " Make Y yank until the end of the line:
 nmap Y y$
@@ -435,6 +434,20 @@ let g:goyo_height=95
 
 nnoremap <Leader>gg :Goyo<CR>
 
+function! s:goyo_enter()
+	let g:buftabline_show=0
+	call buftabline#update(0)
+	set showtabline=0
+endfunction
+
+function! s:goyo_leave()
+	set showtabline=1
+	let g:buftabline_show=2
+	call buftabline#update(0)
+endfunction
+
+autocmd! User GoyoEnter nested call <SID>goyo_enter()
+autocmd! User GoyoLeave nested call <SID>goyo_leave()
 " EasyAlign ------------------------------ {{{2
 
 " Start interactive EasyAlign in visual mode (e.g. vipga)
@@ -452,31 +465,6 @@ let g:table_mode_header_fillchar="="
 
 let g:BufKillCreateMappings = 0 " Disable default mappings
 nnoremap <Leader>k :BD<CR>
-
-" Airline -------------------------------- {{{2
-
-" Disable warning about trailing whitespaces:
-let g:airline#extensions#whitespace#enabled = 0
-" Use powerline fonts:
-let g:airline_powerline_fonts = 1
-" Enable the list of buffers/tabs at the top of the window:
-let g:airline#extensions#tabline#enabled = 1
-" Enable/disable displaying tabs, regardless of number:
-let g:airline#extensions#tabline#show_tabs = 1
-" Show just the filename, no path:
-let g:airline#extensions#tabline#fnamemod = ':t'
-" Enable/disable displaying buffers with a single tab:
-let g:airline#extensions#tabline#show_buffers = 1
-" Configure the minimum number of buffers needed to show the tabline:
-let g:airline#extensions#tabline#buffer_min_count = 1
-" Show buffer numbers in bufferline:
-let g:airline#extensions#tabline#buffer_nr_show = 1
-" Enable/disable word count:
-let g:airline#extensions#wordcount#enabled = 1
-" Specify file types for word count:
-let g:airline#extensions#wordcount#filetypes = '\vhelp|markdown|pandoc|rst|org|text|asciidoc|tex|mail'
-" Custom theme:
-let g:airline_theme = 'one'
 
 " fzf.vim -------------------------------- {{{2
 
@@ -497,3 +485,12 @@ let g:rooter_resolve_links = 1
 
 let g:filebeagle_suppress_keymaps = 1
 map <silent> -          <Plug>FileBeagleOpenCurrentBufferDir
+" Buftabline -------------------------------- {{{2
+
+let g:buftabline_numbers=1
+
+" Colors
+hi link BufTabLineCurrent TabLineSel
+hi link BufTabLineActive  PmenuSel
+hi link BufTabLineHidden  StatusLine
+hi link BufTabLineFill    TabLineFill
