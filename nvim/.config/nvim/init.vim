@@ -1,5 +1,3 @@
-" vim: foldmethod=marker foldcolumn=2
-" ---------------------------------------
 " General settings {{{1
 " ---------------------------------------
 
@@ -54,7 +52,7 @@ if has('termguicolors')
 	set termguicolors " Use true colors (only works in NeoVim and Vim >= 8.0)
 endif
 
-set background=light
+set background=dark
 colorscheme one
 
 " Use italics in the terminal:
@@ -67,41 +65,41 @@ if has('nvim')
 
 	" Terminal colors (One dark, One light):
 
-	" Light:
-	let g:terminal_color_0  = '#000000'
-	let g:terminal_color_1  = '#E45649'
-	let g:terminal_color_2  = '#50A14F'
-	let g:terminal_color_3  = '#986801'
-	let g:terminal_color_4  = '#4078F2'
-	let g:terminal_color_5  = '#A626A4'
-	let g:terminal_color_6  = '#0184BC'
-	let g:terminal_color_7  = '#A0A1A7'
-	let g:terminal_color_8  = '#5c6370'
-	let g:terminal_color_9  = '#e06c75'
-	let g:terminal_color_10 = '#50A14F'
-	let g:terminal_color_11 = '#986801'
-	let g:terminal_color_12 = '#4078F2'
-	let g:terminal_color_13 = '#A626A4'
-	let g:terminal_color_14 = '#0184BC'
-	let g:terminal_color_15 = '#ffffff'
-
-	" " Dark:
+	" " Light:
 	" let g:terminal_color_0  = '#000000'
-	" let g:terminal_color_1  = '#E06C75'
-	" let g:terminal_color_2  = '#98c379'
-	" let g:terminal_color_3  = '#d19a66'
-	" let g:terminal_color_4  = '#61aeee'
-	" let g:terminal_color_5  = '#c678dd'
-	" let g:terminal_color_6  = '#56b6c2'
-	" let g:terminal_color_7  = '#abb2bf'
+	" let g:terminal_color_1  = '#E45649'
+	" let g:terminal_color_2  = '#50A14F'
+	" let g:terminal_color_3  = '#986801'
+	" let g:terminal_color_4  = '#4078F2'
+	" let g:terminal_color_5  = '#A626A4'
+	" let g:terminal_color_6  = '#0184BC'
+	" let g:terminal_color_7  = '#A0A1A7'
 	" let g:terminal_color_8  = '#5c6370'
 	" let g:terminal_color_9  = '#e06c75'
-	" let g:terminal_color_10 = '#98c379'
-	" let g:terminal_color_11 = '#d19a66'
-	" let g:terminal_color_12 = '#62afee'
-	" let g:terminal_color_13 = '#c678dd'
-	" let g:terminal_color_14 = '#56b6c2'
+	" let g:terminal_color_10 = '#50A14F'
+	" let g:terminal_color_11 = '#986801'
+	" let g:terminal_color_12 = '#4078F2'
+	" let g:terminal_color_13 = '#A626A4'
+	" let g:terminal_color_14 = '#0184BC'
 	" let g:terminal_color_15 = '#ffffff'
+
+	" Dark:
+	let g:terminal_color_0  = '#000000'
+	let g:terminal_color_1  = '#E06C75'
+	let g:terminal_color_2  = '#98c379'
+	let g:terminal_color_3  = '#d19a66'
+	let g:terminal_color_4  = '#61aeee'
+	let g:terminal_color_5  = '#c678dd'
+	let g:terminal_color_6  = '#56b6c2'
+	let g:terminal_color_7  = '#abb2bf'
+	let g:terminal_color_8  = '#5c6370'
+	let g:terminal_color_9  = '#e06c75'
+	let g:terminal_color_10 = '#98c379'
+	let g:terminal_color_11 = '#d19a66'
+	let g:terminal_color_12 = '#62afee'
+	let g:terminal_color_13 = '#c678dd'
+	let g:terminal_color_14 = '#56b6c2'
+	let g:terminal_color_15 = '#ffffff'
 
 	let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1 " Change cursor shape in insert mode
 endif
@@ -206,15 +204,15 @@ endif
 
 " Status line ------------------------------ {{{2
 
-set statusline=                               " Clear the statusline
-set statusline+=\ %f\                         " File name
-set statusline+=%h%m%r%w\                     " Flags: help, modified, readonly, preview window
-set statusline+=[%{strlen(&ft)?&ft:'none'},\  " Filetype
-set statusline+=%{strlen(&fenc)?&fenc:&enc},\ " Encoding
-set statusline+=%{&fileformat}]               " File format
-set statusline+=%=                            " Right align
-set statusline+=%{fugitive#statusline()}\ \ \ " Git status
-set statusline+=line\ %l\/%L\                 " Line number and total no. lines
+set statusline=                                " Clear the statusline
+set statusline+=\ %f\                          " Path relative to current directory
+set statusline+=%h%m%r%w\                      " Flags: help, modified, readonly, preview window
+set statusline+=[%{strlen(&ft)?&ft:'none'},\   " Filetype
+set statusline+=%{strlen(&fenc)?&fenc:&enc},\  " Encoding
+set statusline+=%{&fileformat}]                " File format
+set statusline+=%=                             " Right align
+set statusline+=%{fugitive#head()}\ \ \        " Git branch
+set statusline+=line\ %l\/%L\                  " Line number and total no. lines
 
 " File type-specific settings ------------------------------- {{{2
 
@@ -261,6 +259,12 @@ let g:tex_flavor="latex"
 augroup netlogo
 	autocmd!
 	autocmd FileType netlogo setlocal expandtab shiftwidth=2 softtabstop=2 commentstring=;%s
+augroup END
+
+" Manual folding for Vimscript:
+augroup vimscript
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker foldcolumn=2
 augroup END
 
 " ---------------------------------------
