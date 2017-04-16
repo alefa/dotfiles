@@ -1,5 +1,3 @@
-" vim: foldmethod=marker foldcolumn=2
-" ---------------------------------------
 " General settings {{{1
 " ---------------------------------------
 
@@ -206,15 +204,15 @@ endif
 
 " Status line ------------------------------ {{{2
 
-set statusline=                               " Clear the statusline
-set statusline+=\ %f\                         " File name
-set statusline+=%h%m%r%w\                     " Flags: help, modified, readonly, preview window
-set statusline+=[%{strlen(&ft)?&ft:'none'},\  " Filetype
-set statusline+=%{strlen(&fenc)?&fenc:&enc},\ " Encoding
-set statusline+=%{&fileformat}]               " File format
-set statusline+=%=                            " Right align
-set statusline+=%{fugitive#statusline()}\ \ \ " Git status
-set statusline+=line\ %l\/%L\                 " Line number and total no. lines
+set statusline=                                " Clear the statusline
+set statusline+=\ %f\                          " Path relative to current directory
+set statusline+=%h%m%r%w\                      " Flags: help, modified, readonly, preview window
+set statusline+=[%{strlen(&ft)?&ft:'none'},\   " Filetype
+set statusline+=%{strlen(&fenc)?&fenc:&enc},\  " Encoding
+set statusline+=%{&fileformat}]                " File format
+set statusline+=%=                             " Right align
+set statusline+=%{fugitive#head()}\ \ \        " Git branch
+set statusline+=line\ %l\/%L\                  " Line number and total no. lines
 
 " File type-specific settings ------------------------------- {{{2
 
@@ -261,6 +259,12 @@ let g:tex_flavor="latex"
 augroup netlogo
 	autocmd!
 	autocmd FileType netlogo setlocal expandtab shiftwidth=2 softtabstop=2 commentstring=;%s
+augroup END
+
+" Manual folding for Vimscript:
+augroup vimscript
+    autocmd!
+    autocmd FileType vim setlocal foldmethod=marker foldcolumn=2
 augroup END
 
 " ---------------------------------------
