@@ -43,6 +43,7 @@ Plug 'Valloric/ListToggle'            " Key bindings for toggling the quickfix a
 Plug 'rakr/vim-one'                   " Atom's default color scheme for Vim
 Plug 'freitass/todo.txt-vim'          " Todo.txt filetype plugin and mappings
 Plug 'ap/vim-buftabline'              " Show buffers in the tabline
+Plug 'lifepillar/vim-mucomplete'      " Tab-completion which goes through a list of completion methods
 
 call plug#end()
 
@@ -201,6 +202,10 @@ if executable('ag')
     set grepprg=ag\ --nogroup\ --nocolor\ --column
     set grepformat=%f:%l:%c%m
 endif
+
+" Completion settings:
+set completeopt+=menuone " Use a popup menu also with only one match
+" set shortmess+=c " Turn off insert-completion messages
 
 " Status line ------------------------------ {{{2
 
@@ -449,7 +454,7 @@ let g:vimtex_compiler_latexmk = {
 			\}
 
 " UltiSnips ------------------------------- {{{2
-let g:UltiSnipsExpandTrigger="<tab>"                                            
+let g:UltiSnipsExpandTrigger="<c-]>"                                            
 let g:UltiSnipsJumpForwardTrigger="<tab>"                                       
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>" 
 
@@ -520,3 +525,12 @@ hi link BufTabLineCurrent TabLineSel
 hi link BufTabLineActive  PmenuSel
 hi link BufTabLineHidden  StatusLine
 hi link BufTabLineFill    TabLineFill
+
+" Mucomplete -------------------------------- {{{2
+
+let g:mucomplete#user_mappings = {
+			\ 'rarg' : "\<c-x>\<c-a>",
+			\ }
+
+let g:mucomplete#chains = { 'default': ['path', 'omni', 'c-p'] }
+let g:mucomplete#chains.r = ['path', 'omni', 'rarg', 'c-p'] 
