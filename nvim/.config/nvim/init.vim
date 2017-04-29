@@ -13,13 +13,10 @@ syntax on
 
 call plug#begin('~/.config/nvim/plugged')
 
-" List plugins to be managed:
+" General plugins:
 Plug 'cohama/lexima.vim'              " Automatically insert closing brackets, quotation marks etc.
 Plug 'tpope/vim-surround'             " Surround text by pairs of delimiters
 Plug 'tpope/vim-fugitive'             " Git integration
-Plug 'vim-pandoc/vim-pandoc'          " Call Pandoc from Vim
-Plug 'vim-pandoc/vim-pandoc-syntax'   " Syntax highlighting for Pandoc's Markdown variant
-Plug 'jalvesaq/Nvim-R'                " Send commands to the R console from Vim and much more
 Plug 'tpope/vim-repeat'               " Make more things repeatable with the dot command
 Plug 'kshenoy/vim-signature'          " Show marks in the margin
 Plug 'tpope/vim-unimpaired'           " Lots of useful key bindings
@@ -32,7 +29,6 @@ Plug 'kana/vim-textobj-indent'        " Text objects based on indentation; requi
 Plug 'kana/vim-textobj-line'          " Current-line text objects; requires vim-textobj-user
 Plug 'kana/vim-textobj-fold'          " Text objects for folding
 Plug 'b4winckler/vim-angry'           " Function argument text object
-Plug 'lervag/vimtex'                  " Edit and compile LaTeX files
 Plug 'junegunn/vim-easy-align'        " Easily align columns
 Plug 'dhruvasagar/vim-table-mode'     " Easily create plain-text tables
 Plug 'qpkorr/vim-bufkill'             " Keep split windows open when closing buffers
@@ -41,9 +37,17 @@ Plug 'junegunn/fzf.vim'               " Vim integration for fzf
 Plug 'airblade/vim-rooter'            " Set Vim's working directory to git project root
 Plug 'Valloric/ListToggle'            " Key bindings for toggling the quickfix and location list
 Plug 'rakr/vim-one'                   " Atom's default color scheme for Vim
-Plug 'freitass/todo.txt-vim'          " Todo.txt filetype plugin and mappings
 Plug 'ap/vim-buftabline'              " Show buffers in the tabline
 Plug 'lifepillar/vim-mucomplete'      " Tab-completion which goes through a list of completion methods
+
+" Filetype-specific plugins:
+Plug 'freitass/todo.txt-vim'            " Todo.txt filetype plugin and mappings
+Plug 'vim-pandoc/vim-pandoc'            " Call Pandoc from Vim
+Plug 'vim-pandoc/vim-pandoc-syntax'     " Syntax highlighting for Pandoc's Markdown variant
+Plug 'jalvesaq/Nvim-R'                  " Send commands to the R console from Vim and much more
+Plug 'lervag/vimtex'                    " Edit and compile LaTeX files
+Plug 'octol/vim-cpp-enhanced-highlight' " Better syntax highlighting for C++
+Plug 'justmao945/vim-clang'             " Completion for C/C++
 
 call plug#end()
 
@@ -276,6 +280,12 @@ augroup END
 augroup quickfix
 	autocmd!
 	autocmd FileType qf setlocal colorcolumn=""
+augroup END
+
+" Settings for C++:
+augroup cpp
+	autocmd!
+	autocmd FileType cpp setlocal completefunc=ClangComplete omnifunc=ClangComplete
 augroup END
 
 " ---------------------------------------
@@ -534,3 +544,12 @@ let g:mucomplete#user_mappings = {
 
 let g:mucomplete#chains = { 'default': ['path', 'omni', 'c-p'] }
 let g:mucomplete#chains.r = ['path', 'omni', 'rarg', 'c-p'] 
+
+
+" Vim-Clang -------------------------------- {{{2
+
+let g:clang_auto = 0
+let g:clang_c_completeopt = 'menuone'
+let g:clang_cpp_completeopt = 'menuone'
+let g:clang_diagsopt = ''
+let g:clang_include_sysheaders_from_gcc = 1
