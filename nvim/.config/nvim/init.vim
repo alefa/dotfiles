@@ -267,6 +267,12 @@ augroup vimscript
     autocmd FileType vim setlocal foldmethod=marker foldcolumn=2
 augroup END
 
+" Settings for quickfix window:
+augroup quickfix
+	autocmd!
+	autocmd FileType qf setlocal colorcolumn=""
+augroup END
+
 " ---------------------------------------
 " Custom keyboard mappings and functions {{{1
 " ---------------------------------------
@@ -419,14 +425,28 @@ nnoremap <leader>ga :Gcommit -a<CR>
 " VimTeX ------------------------------ {{{2
 let g:vimtex_fold_enabled = 1
 let g:vimtex_fold_envs = 0
-let g:vimtex_latexmk_continuous = 0
-let g:vimtex_latexmk_background = 1
-let g:vimtex_quickfix_autojump = 1
+let g:vimtex_quickfix_autojump = 0
 let g:vimtex_view_general_viewer = 'okular'
 let g:vimtex_view_general_options = '--unique @pdf\#src:@line@tex'
 let g:vimtex_view_general_options_latexmk = '--unique'
-let g:vimtex_latexmk_progname = 'nvr'
-
+let g:vimtex_compiler_progname = 'nvr'
+let g:vimtex_quickfix_latexlog = {'fix_paths':0} " Workaround for Neovim bug which should be fixed in 0.2.0
+let g:vimtex_quickfix_open_on_warning = 0
+let g:vimtex_compiler_latexmk = {
+			\ 'backend' : 'nvim',
+			\ 'background' : 1,
+			\ 'build_dir' : '',
+			\ 'callback' : 0,
+			\ 'continuous' : 0,
+			\ 'executable' : 'latexmk',
+			\ 'options' : [
+			\   '-pdf',
+			\   '-verbose',
+			\   '-file-line-error',
+			\   '-synctex=1',
+			\   '-interaction=nonstopmode',
+			\ ],
+			\}
 
 " UltiSnips ------------------------------- {{{2
 let g:UltiSnipsExpandTrigger="<tab>"                                            

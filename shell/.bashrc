@@ -103,6 +103,9 @@ alias open="xdg-open"
 # Open Temp.txt in vim:
 alias vt='nvim /home/gita/Temp.txt'
 
+# Ranger:
+alias rg='ranger'
+
 # Git aliases:
 alias gcl='git clone'
 alias ga='git add'
