@@ -208,8 +208,8 @@ if executable('ag')
 endif
 
 " Completion settings:
-set completeopt+=menuone " Use a popup menu also with only one match
-" set shortmess+=c " Turn off insert-completion messages
+set completeopt-=preview
+set completeopt+=menuone
 
 " Status line ------------------------------ {{{2
 
@@ -367,10 +367,6 @@ endfunction
 " Split line at cursor (the reverse operation to join lines [J])
 " Modified from Steve Losh's vimrc at https://bitbucket.org/sjl/dotfiles/src/cbbbc897e9b3/vim/vimrc
 nnoremap S i<CR><ESC>gk:silent! s/\v +$//<CR>gj^`.
-
-" Remove the mapping of K to open the man page for the word under the cursor
-" (because I keep hitting this key accidentally all the time)
-nnoremap K <nop>
 
 " Remove the mapping of F1 (help pages can easily be opened with ":help")
 nnoremap <F1> <nop>
