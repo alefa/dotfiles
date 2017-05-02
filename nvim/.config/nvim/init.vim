@@ -14,13 +14,13 @@ syntax on
 call plug#begin('~/.config/nvim/plugged')
 
 " General plugins:
-Plug 'cohama/lexima.vim'              " Automatically insert closing brackets, quotation marks etc.
 Plug 'tpope/vim-surround'             " Surround text by pairs of delimiters
-Plug 'tpope/vim-fugitive'             " Git integration
 Plug 'tpope/vim-repeat'               " Make more things repeatable with the dot command
-Plug 'kshenoy/vim-signature'          " Show marks in the margin
 Plug 'tpope/vim-unimpaired'           " Lots of useful key bindings
 Plug 'tpope/vim-commentary'           " Comment and uncomment code
+Plug 'tpope/vim-fugitive'             " Git integration
+Plug 'cohama/lexima.vim'              " Automatically insert closing brackets, quotation marks etc.
+Plug 'kshenoy/vim-signature'          " Show marks in the margin
 Plug 'SirVer/ultisnips'               " Easily insert often used snippets of text
 Plug 'jeetsukumaran/vim-filebeagle'   " Simple file browser, less buggy than netrw
 Plug 'junegunn/goyo.vim'              " Distraction-free writing mode
@@ -208,8 +208,8 @@ if executable('ag')
 endif
 
 " Completion settings:
-set completeopt-=preview
-set completeopt+=menuone
+set completeopt-=preview " Do not show completion options in a preview window
+set completeopt+=menuone " Show completion menu even if it has only one entry
 
 " Status line ------------------------------ {{{2
 
@@ -270,22 +270,16 @@ augroup netlogo
 	autocmd FileType netlogo setlocal expandtab shiftwidth=2 softtabstop=2 commentstring=;%s
 augroup END
 
-" Manual folding for Vimscript:
+" Settings for Vimscript:
 augroup vimscript
     autocmd!
-    autocmd FileType vim setlocal foldmethod=marker foldcolumn=2
+    autocmd FileType vim setlocal foldmethod=marker foldcolumn=2 keywordprg=:help
 augroup END
 
 " Settings for quickfix window:
 augroup quickfix
 	autocmd!
 	autocmd FileType qf setlocal colorcolumn=""
-augroup END
-
-" Settings for C++:
-augroup cpp
-	autocmd!
-	autocmd FileType cpp setlocal completefunc=ClangComplete omnifunc=ClangComplete
 augroup END
 
 " ---------------------------------------
@@ -538,8 +532,8 @@ let g:mucomplete#user_mappings = {
 			\ 'rarg' : "\<c-x>\<c-a>",
 			\ }
 
-let g:mucomplete#chains = { 'default': ['path', 'omni', 'c-p'] }
-let g:mucomplete#chains.r = ['path', 'omni', 'rarg', 'c-p'] 
+let g:mucomplete#chains = { 'default': ['file', 'omni', 'c-p'] }
+let g:mucomplete#chains.r = ['file', 'omni', 'rarg', 'c-p'] 
 
 
 " Vim-Clang -------------------------------- {{{2
