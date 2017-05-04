@@ -371,6 +371,10 @@ nnoremap Q <nop>
 " Mappings for Neovim's terminal buffer:
 if has('nvim')
 	tnoremap <C-\> <C-\><C-n>
+    tnoremap <C-h> <C-\><C-n><C-w>h
+    tnoremap <C-j> <C-\><C-n><C-w>j
+    tnoremap <C-k> <C-\><C-n><C-w>k
+    tnoremap <C-l> <C-\><C-n><C-w>l
 	nnoremap <Leader>ts :sp<CR>:term<CR>
 	nnoremap <Leader>tv :vsp<CR>:term<CR>
 endif
