@@ -130,8 +130,6 @@ set splitright              " Vertical splits to the right of the current one (d
 set modeline                " For security reasons, modeline is off by default in Debian and Ubuntu
 set lazyredraw              " Pause redrawing the screen when executing macros and functions
 set virtualedit=block       " Allow moving the cursor outside of the text in visual block mode
-" set noshowmode              " Turn indicator for insert, visual and replace mode off
-" set ruler                   " Show cursor position (line, column) at the bottom
 
 " Jump to the last position when reopening a file:
 augroup last_pos
@@ -168,12 +166,6 @@ augroup novsbell
 	autocmd!
 	autocmd GUIEnter * set visualbell t_vb=
 augroup END
-
-" Always set working directory to the location of the currently edited file:
-" augroup setwd
-" 	autocmd!
-" 	autocmd BufEnter * silent! lcd %:p:h
-" augroup END
 
 " Don't use backup and swap files:
 set nobackup
@@ -343,17 +335,6 @@ nnoremap <C-w>< 10<C-w><
 
 " Easier saving:
 nnoremap <Leader>w :w<CR>
-
-" Set the arglist to the content of the quickfix list (tip from "Practical Vim"):
-command! -nargs=0 -bar Qargs execute 'args' QuickfixFilenames()
-
-function! QuickfixFilenames()
-	let buffer_numbers = {}
-	for quickfix_item in getqflist()
-		let buffer_numbers[quickfix_item['bufnr']] = bufname(quickfix_item['bufnr'])
-	endfor
-	return join(map(values(buffer_numbers), 'fnameescape(v:val)'))
-endfunction
 
 " Split line at cursor (the reverse operation to join lines [J])
 " Modified from Steve Losh's vimrc at https://bitbucket.org/sjl/dotfiles/src/cbbbc897e9b3/vim/vimrc
