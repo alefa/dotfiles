@@ -27,14 +27,11 @@ Plug 'junegunn/goyo.vim'              " Distraction-free writing mode
 Plug 'kana/vim-textobj-user'          " Easy definition of additional text objects
 Plug 'kana/vim-textobj-indent'        " Text objects based on indentation; requires vim-textobj-user
 Plug 'kana/vim-textobj-line'          " Current-line text objects; requires vim-textobj-user
-Plug 'kana/vim-textobj-fold'          " Text objects for folding
 Plug 'b4winckler/vim-angry'           " Function argument text object
 Plug 'junegunn/vim-easy-align'        " Easily align columns
-Plug 'dhruvasagar/vim-table-mode'     " Easily create plain-text tables
 Plug 'qpkorr/vim-bufkill'             " Keep split windows open when closing buffers
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder
 Plug 'junegunn/fzf.vim'               " Vim integration for fzf
-Plug 'airblade/vim-rooter'            " Set Vim's working directory to git project root
 Plug 'Valloric/ListToggle'            " Key bindings for toggling the quickfix and location list
 Plug 'rakr/vim-one'                   " Atom's default color scheme for Vim
 Plug 'ap/vim-buftabline'              " Show buffers in the tabline
@@ -491,11 +488,6 @@ xmap ga <Plug>(EasyAlign)
 " Start interactive EasyAlign for a motion/text object (e.g. gaip)
 nmap ga <Plug>(EasyAlign)
 
-" Table-mode ------------------------------ {{{2
-
-let g:table_mode_corner_corner="+"
-let g:table_mode_header_fillchar="="
-
 " Buffkill ------------------------------ {{{2
 
 let g:BufKillCreateMappings = 0 " Disable default mappings
@@ -505,16 +497,6 @@ nnoremap <Leader>k :BD<CR>
 
 nnoremap <silent> <Leader>f :Files<CR>
 nnoremap <silent> <Leader>b :Buffers<CR>
-
-" Vim-rooter -------------------------------- {{{2
-
-" Change working directory to file's directory if it's not part of a git
-" project:
-let g:rooter_change_directory_for_non_project_files = 'current'
-" Don't print a message when changing working directory:
-let g:rooter_silent_chdir = 1
-" Resolve symbolic links:
-let g:rooter_resolve_links = 1
 
 " Filebeagle -------------------------------- {{{2
 
