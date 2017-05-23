@@ -104,7 +104,7 @@ alias open="xdg-open"
 alias vt='nvim /home/gita/Temp.txt'
 
 # Ranger:
-alias rg='ranger'
+alias rg='ranger --choosedir=$HOME/rangerdir;cd $(cat $HOME/rangerdir)'
 
 # Git aliases:
 alias gcl='git clone'
