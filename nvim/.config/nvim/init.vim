@@ -54,7 +54,7 @@ if has('termguicolors')
 	set termguicolors " Use true colors (only works in NeoVim and Vim >= 8.0)
 endif
 
-set background=light
+set background=dark
 colorscheme one
 
 " Use italics in the terminal:
@@ -64,41 +64,41 @@ set t_ZR=[23m
 " Neovim terminal colors (One dark, One light):
 if has('nvim')
 
-	" Light:
-	let g:terminal_color_0  = '#000000'
-	let g:terminal_color_1  = '#E45649'
-	let g:terminal_color_2  = '#50A14F'
-	let g:terminal_color_3  = '#986801'
-	let g:terminal_color_4  = '#4078F2'
-	let g:terminal_color_5  = '#A626A4'
-	let g:terminal_color_6  = '#0184BC'
-	let g:terminal_color_7  = '#A0A1A7'
-	let g:terminal_color_8  = '#5c6370'
-	let g:terminal_color_9  = '#e06c75'
-	let g:terminal_color_10 = '#50A14F'
-	let g:terminal_color_11 = '#986801'
-	let g:terminal_color_12 = '#4078F2'
-	let g:terminal_color_13 = '#A626A4'
-	let g:terminal_color_14 = '#0184BC'
-	let g:terminal_color_15 = '#ffffff'
-
-	" " Dark:
+	" " Light:
 	" let g:terminal_color_0  = '#000000'
-	" let g:terminal_color_1  = '#E06C75'
-	" let g:terminal_color_2  = '#98c379'
-	" let g:terminal_color_3  = '#d19a66'
-	" let g:terminal_color_4  = '#61aeee'
-	" let g:terminal_color_5  = '#c678dd'
-	" let g:terminal_color_6  = '#56b6c2'
-	" let g:terminal_color_7  = '#abb2bf'
+	" let g:terminal_color_1  = '#E45649'
+	" let g:terminal_color_2  = '#50A14F'
+	" let g:terminal_color_3  = '#986801'
+	" let g:terminal_color_4  = '#4078F2'
+	" let g:terminal_color_5  = '#A626A4'
+	" let g:terminal_color_6  = '#0184BC'
+	" let g:terminal_color_7  = '#A0A1A7'
 	" let g:terminal_color_8  = '#5c6370'
 	" let g:terminal_color_9  = '#e06c75'
-	" let g:terminal_color_10 = '#98c379'
-	" let g:terminal_color_11 = '#d19a66'
-	" let g:terminal_color_12 = '#62afee'
-	" let g:terminal_color_13 = '#c678dd'
-	" let g:terminal_color_14 = '#56b6c2'
+	" let g:terminal_color_10 = '#50A14F'
+	" let g:terminal_color_11 = '#986801'
+	" let g:terminal_color_12 = '#4078F2'
+	" let g:terminal_color_13 = '#A626A4'
+	" let g:terminal_color_14 = '#0184BC'
 	" let g:terminal_color_15 = '#ffffff'
+
+	" Dark:
+	let g:terminal_color_0  = '#000000'
+	let g:terminal_color_1  = '#E06C75'
+	let g:terminal_color_2  = '#98c379'
+	let g:terminal_color_3  = '#d19a66'
+	let g:terminal_color_4  = '#61aeee'
+	let g:terminal_color_5  = '#c678dd'
+	let g:terminal_color_6  = '#56b6c2'
+	let g:terminal_color_7  = '#abb2bf'
+	let g:terminal_color_8  = '#5c6370'
+	let g:terminal_color_9  = '#e06c75'
+	let g:terminal_color_10 = '#98c379'
+	let g:terminal_color_11 = '#d19a66'
+	let g:terminal_color_12 = '#62afee'
+	let g:terminal_color_13 = '#c678dd'
+	let g:terminal_color_14 = '#56b6c2'
+	let g:terminal_color_15 = '#ffffff'
 
 endif
 
