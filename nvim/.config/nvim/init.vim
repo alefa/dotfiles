@@ -20,7 +20,6 @@ Plug 'tpope/vim-unimpaired'           " Lots of useful key bindings
 Plug 'tpope/vim-commentary'           " Comment and uncomment code
 Plug 'tpope/vim-fugitive'             " Git integration
 Plug 'cohama/lexima.vim'              " Automatically insert closing brackets, quotation marks etc.
-Plug 'kshenoy/vim-signature'          " Show marks in the margin
 Plug 'SirVer/ultisnips'               " Easily insert often used snippets of text
 Plug 'jeetsukumaran/vim-filebeagle'   " Simple file browser, less buggy than netrw
 Plug 'junegunn/goyo.vim'              " Distraction-free writing mode
@@ -248,11 +247,11 @@ let pascal_fpc=1
 " Set filetype of .tex files to LaTeX:
 let g:tex_flavor="latex"
 
-" Indentation rules for NetLogo files:
+" Indentation rules and other settings for NetLogo files:
 " (for consistency with the inbuilt NetLogo editor)
 augroup netlogo
 	autocmd!
-	autocmd FileType netlogo setlocal expandtab shiftwidth=2 softtabstop=2 commentstring=;%s
+	autocmd FileType netlogo setlocal expandtab shiftwidth=2 softtabstop=2 commentstring=;%s foldmethod=marker
 augroup END
 
 " Settings for Vimscript:
