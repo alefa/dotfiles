@@ -34,6 +34,7 @@ Plug 'junegunn/fzf.vim'               " Vim integration for fzf
 Plug 'Valloric/ListToggle'            " Key bindings for toggling the quickfix and location list
 Plug 'rakr/vim-one'                   " Atom's default color scheme for Vim
 Plug 'ap/vim-buftabline'              " Show buffers in the tabline
+Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' } " Completion
 
 " Filetype-specific plugins:
 Plug 'freitass/todo.txt-vim'            " Todo.txt filetype plugin and mappings
@@ -42,6 +43,8 @@ Plug 'vim-pandoc/vim-pandoc-syntax'     " Syntax highlighting for Pandoc's Markd
 Plug 'jalvesaq/Nvim-R'                  " Send commands to the R console from Vim and much more
 Plug 'lervag/vimtex'                    " Edit and compile LaTeX files
 Plug 'octol/vim-cpp-enhanced-highlight' " Better syntax highlighting for C++
+Plug 'zchee/deoplete-clang'             " Clang-completion for C++
+Plug 'Shougo/neoinclude.vim'            " Header file completion for C++
 
 call plug#end()
 
@@ -192,6 +195,8 @@ endif
 " Completion settings:
 set completeopt-=preview " Do not show completion options in a preview window
 set completeopt+=menuone " Show completion menu even if it has only one entry
+set completeopt+=noinsert " Do not automatically insert the first match
+set completeopt+=noselect " Do not automatically select the first match
 
 " Status line ------------------------------ {{{2
 
@@ -425,7 +430,7 @@ let g:vimtex_compiler_latexmk = {
 			\}
 
 " UltiSnips ------------------------------- {{{2
-let g:UltiSnipsExpandTrigger="<tab>"                                            
+let g:UltiSnipsExpandTrigger="<c-j>"                                            
 let g:UltiSnipsJumpForwardTrigger="<tab>"                                       
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>" 
 
@@ -482,3 +487,20 @@ hi link BufTabLineActive  PmenuSel
 hi link BufTabLineHidden  StatusLine
 hi link BufTabLineFill    TabLineFill
 
+" Deoplete -------------------------------- {{{2
+let g:deoplete#enable_at_startup = 1
+let g:deoplete#disable_auto_complete = 1
+
+inoremap <silent><expr> <TAB>
+			\ pumvisible() ? "\<C-n>" :
+			\ <SID>check_back_space() ? "\<TAB>" :
+			\ deoplete#mappings#manual_complete()
+
+function! s:check_back_space() abort
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+" Deoplete-clang -------------------------------- {{{2
+let g:deoplete#sources#clang#libclang_path = '/usr/lib/llvm-3.8/lib/libclang.so.1'
+let g:deoplete#sources#clang#clang_header = '/usr/lib/llvm-3.8/lib/clang/'
