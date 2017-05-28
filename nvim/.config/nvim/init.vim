@@ -34,7 +34,6 @@ Plug 'junegunn/fzf.vim'               " Vim integration for fzf
 Plug 'Valloric/ListToggle'            " Key bindings for toggling the quickfix and location list
 Plug 'rakr/vim-one'                   " Atom's default color scheme for Vim
 Plug 'ap/vim-buftabline'              " Show buffers in the tabline
-Plug 'lifepillar/vim-mucomplete'      " Tab-completion which goes through a list of completion methods
 
 " Filetype-specific plugins:
 Plug 'freitass/todo.txt-vim'            " Todo.txt filetype plugin and mappings
@@ -43,7 +42,6 @@ Plug 'vim-pandoc/vim-pandoc-syntax'     " Syntax highlighting for Pandoc's Markd
 Plug 'jalvesaq/Nvim-R'                  " Send commands to the R console from Vim and much more
 Plug 'lervag/vimtex'                    " Edit and compile LaTeX files
 Plug 'octol/vim-cpp-enhanced-highlight' " Better syntax highlighting for C++
-Plug 'justmao945/vim-clang'             " Completion for C/C++
 
 call plug#end()
 
@@ -427,7 +425,7 @@ let g:vimtex_compiler_latexmk = {
 			\}
 
 " UltiSnips ------------------------------- {{{2
-let g:UltiSnipsExpandTrigger="<c-]>"                                            
+let g:UltiSnipsExpandTrigger="<tab>"                                            
 let g:UltiSnipsJumpForwardTrigger="<tab>"                                       
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>" 
 
@@ -484,20 +482,3 @@ hi link BufTabLineActive  PmenuSel
 hi link BufTabLineHidden  StatusLine
 hi link BufTabLineFill    TabLineFill
 
-" Mucomplete -------------------------------- {{{2
-
-let g:mucomplete#user_mappings = {
-			\ 'rarg' : "\<c-x>\<c-a>",
-			\ }
-
-let g:mucomplete#chains = { 'default': ['file', 'omni', 'c-p'] }
-let g:mucomplete#chains.r = ['file', 'omni', 'rarg', 'c-p'] 
-
-
-" Vim-Clang -------------------------------- {{{2
-
-let g:clang_auto = 0
-let g:clang_c_completeopt = 'menuone'
-let g:clang_cpp_completeopt = 'menuone'
-let g:clang_diagsopt = ''
-let g:clang_include_sysheaders_from_gcc = 1
