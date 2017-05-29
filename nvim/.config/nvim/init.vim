@@ -34,6 +34,7 @@ Plug 'junegunn/fzf.vim'               " Vim integration for fzf
 Plug 'Valloric/ListToggle'            " Key bindings for toggling the quickfix and location list
 Plug 'rakr/vim-one'                   " Atom's default color scheme for Vim
 Plug 'ap/vim-buftabline'              " Show buffers in the tabline
+Plug 'lifepillar/vim-mucomplete'      " Tab-completion which goes through a list of completion methods
 
 " Filetype-specific plugins:
 Plug 'freitass/todo.txt-vim'            " Todo.txt filetype plugin and mappings
@@ -42,6 +43,7 @@ Plug 'vim-pandoc/vim-pandoc-syntax'     " Syntax highlighting for Pandoc's Markd
 Plug 'jalvesaq/Nvim-R'                  " Send commands to the R console from Vim and much more
 Plug 'lervag/vimtex'                    " Edit and compile LaTeX files
 Plug 'octol/vim-cpp-enhanced-highlight' " Better syntax highlighting for C++
+Plug 'justmao945/vim-clang'             " Completion for C/C++
 
 call plug#end()
 
@@ -192,8 +194,8 @@ endif
 " Completion settings:
 set completeopt-=preview " Do not show completion options in a preview window
 set completeopt+=menuone " Show completion menu even if it has only one entry
-set completeopt+=noinsert " Do not automatically insert the first match
-set completeopt+=noselect " Do not automatically select the first match
+" set completeopt+=noinsert " Do not automatically insert the first match
+" set completeopt+=noselect " Do not automatically select the first match
 
 " Status line ------------------------------ {{{2
 
@@ -483,4 +485,13 @@ hi link BufTabLineCurrent TabLineSel
 hi link BufTabLineActive  PmenuSel
 hi link BufTabLineHidden  StatusLine
 hi link BufTabLineFill    TabLineFill
+
+" Mucomplete -------------------------------- {{{2
+
+let g:mucomplete#user_mappings = {
+			\ 'rarg' : "\<c-x>\<c-a>",
+			\ }
+
+let g:mucomplete#chains = { 'default': ['file', 'omni', 'c-p'] }
+let g:mucomplete#chains.r = ['file', 'omni', 'rarg', 'c-p'] 
 
