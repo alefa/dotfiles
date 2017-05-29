@@ -43,7 +43,6 @@ Plug 'vim-pandoc/vim-pandoc-syntax'     " Syntax highlighting for Pandoc's Markd
 Plug 'jalvesaq/Nvim-R'                  " Send commands to the R console from Vim and much more
 Plug 'lervag/vimtex'                    " Edit and compile LaTeX files
 Plug 'octol/vim-cpp-enhanced-highlight' " Better syntax highlighting for C++
-Plug 'justmao945/vim-clang'             " Completion for C/C++
 
 call plug#end()
 
