@@ -429,7 +429,7 @@ let g:vimtex_compiler_latexmk = {
 			\}
 
 " UltiSnips ------------------------------- {{{2
-let g:UltiSnipsExpandTrigger="<tab>"                                            
+let g:UltiSnipsExpandTrigger="<c-]>"                                            
 let g:UltiSnipsJumpForwardTrigger="<tab>"                                       
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>" 
 
@@ -495,3 +495,4 @@ let g:mucomplete#user_mappings = {
 let g:mucomplete#chains = { 'default': ['file', 'omni', 'c-p'] }
 let g:mucomplete#chains.r = ['file', 'omni', 'rarg', 'c-p'] 
 
+let g:mucomplete#cycle_with_trigger = 1
