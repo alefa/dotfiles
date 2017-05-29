@@ -34,6 +34,7 @@ Plug 'junegunn/fzf.vim'               " Vim integration for fzf
 Plug 'Valloric/ListToggle'            " Key bindings for toggling the quickfix and location list
 Plug 'rakr/vim-one'                   " Atom's default color scheme for Vim
 Plug 'ap/vim-buftabline'              " Show buffers in the tabline
+Plug 'lifepillar/vim-mucomplete'      " Tab-completion which goes through a list of completion methods
 
 " Filetype-specific plugins:
 Plug 'freitass/todo.txt-vim'            " Todo.txt filetype plugin and mappings
@@ -191,7 +192,7 @@ endif
 
 " Completion settings:
 set completeopt-=preview " Do not show completion options in a preview window
-" set completeopt+=menuone " Show completion menu even if it has only one entry
+set completeopt+=menuone " Show completion menu even if it has only one entry
 " set completeopt+=noinsert " Do not automatically insert the first match
 " set completeopt+=noselect " Do not automatically select the first match
 
@@ -427,7 +428,7 @@ let g:vimtex_compiler_latexmk = {
 			\}
 
 " UltiSnips ------------------------------- {{{2
-let g:UltiSnipsExpandTrigger="<tab>"                                            
+let g:UltiSnipsExpandTrigger="<c-]>"                                            
 let g:UltiSnipsJumpForwardTrigger="<tab>"                                       
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>" 
 
@@ -484,3 +485,13 @@ hi link BufTabLineActive  PmenuSel
 hi link BufTabLineHidden  StatusLine
 hi link BufTabLineFill    TabLineFill
 
+" Mucomplete -------------------------------- {{{2
+
+let g:mucomplete#user_mappings = {
+			\ 'rarg' : "\<c-x>\<c-a>",
+			\ }
+
+let g:mucomplete#chains = { 'default': ['file', 'omni', 'c-p'] }
+let g:mucomplete#chains.r = ['file', 'omni', 'rarg', 'c-p'] 
+
+let g:mucomplete#cycle_with_trigger = 1
