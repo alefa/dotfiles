@@ -36,6 +36,7 @@ Plug 'rakr/vim-one'                   " Atom's default color scheme for Vim
 Plug 'ap/vim-buftabline'              " Show buffers in the tabline
 Plug 'lifepillar/vim-mucomplete'      " Tab-completion which goes through a list of completion methods
 
+
 " Filetype-specific plugins:
 Plug 'freitass/todo.txt-vim'            " Todo.txt filetype plugin and mappings
 Plug 'vim-pandoc/vim-pandoc'            " Call Pandoc from Vim
@@ -349,10 +350,12 @@ if has('nvim')
 	nnoremap <Leader>tv :vsp<CR>:term<CR>
 endif
 
+" Compile the project:
+nnoremap <Leader>mm :make<CR>
 " Compile the current file:
-nnoremap <F9> :make %<<CR>
+nnoremap <Leader>mc :make %<<CR>
 " Run the executable produced from this file:
-nnoremap <F10> :! ./%:r<CR>
+nnoremap <Leader>mr :! ./%:r<CR>
 
 " ---------------------------------------
 " Plugin settings {{{1
