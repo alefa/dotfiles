@@ -94,6 +94,11 @@ alias l='ls -CF'
 # (to make Synctex backward search find the correct Neovim instance)
 alias nvt='NVIM_LISTEN_ADDRESS=/tmp/nvim_tex_socket nvim'
 
+# Aliases for Neovim instances with specific server names:
+alias nv1='NVIM_LISTEN_ADDRESS=/tmp/nvim1_socket nvim'
+alias nv2='NVIM_LISTEN_ADDRESS=/tmp/nvim2_socket nvim'
+alias nv3='NVIM_LISTEN_ADDRESS=/tmp/nvim3_socket nvim'
+
 # Alias for GNU info to use vi-like key bindings:
 alias info='info --vi-keys'
 
