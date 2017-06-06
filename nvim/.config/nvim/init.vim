@@ -432,8 +432,9 @@ let g:vimtex_compiler_latexmk = {
 
 " UltiSnips ------------------------------- {{{2
 let g:UltiSnipsExpandTrigger="<c-]>"                                            
-let g:UltiSnipsJumpForwardTrigger="<tab>"                                       
-let g:UltiSnipsJumpBackwardTrigger="<s-tab>" 
+let g:UltiSnipsJumpForwardTrigger="<c-j>"                                       
+let g:UltiSnipsJumpBackwardTrigger="<c-k>" 
+let g:UltiSnipsSnippetsDir="~/dotfiles/nvim/.config/nvim/UltiSnips"
 
 " Goyo ------------------------------- {{{2
 let g:goyo_width=120
