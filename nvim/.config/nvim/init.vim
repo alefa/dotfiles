@@ -42,7 +42,6 @@ Plug 'vim-pandoc/vim-pandoc-syntax'     " Syntax highlighting for Pandoc's Markd
 Plug 'jalvesaq/Nvim-R'                  " Send commands to the R console from Vim and much more
 Plug 'lervag/vimtex'                    " Edit and compile LaTeX files
 Plug 'octol/vim-cpp-enhanced-highlight' " Better syntax highlighting for C++
-Plug 'justmao945/vim-clang'             " Clang-based completion for C and C++
 
 call plug#end()
 
@@ -191,7 +190,7 @@ if executable('ag')
 endif
 
 " Completion settings:
-set completeopt-=preview " Do not show completion options in a preview window
+" set completeopt-=preview " Do not show completion options in a preview window
 set completeopt+=menuone " Show completion menu even if it has only one entry
 " set completeopt+=noinsert " Do not automatically insert the first match
 " set completeopt+=noselect " Do not automatically select the first match
