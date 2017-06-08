@@ -27,13 +27,13 @@ Plug 'kana/vim-textobj-user'          " Easy definition of additional text objec
 Plug 'kana/vim-textobj-indent'        " Text objects based on indentation; requires vim-textobj-user
 Plug 'kana/vim-textobj-line'          " Current-line text objects; requires vim-textobj-user
 Plug 'b4winckler/vim-angry'           " Function argument text object
-Plug 'junegunn/vim-easy-align'        " Easily align columns
 Plug 'qpkorr/vim-bufkill'             " Keep split windows open when closing buffers
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder
 Plug 'junegunn/fzf.vim'               " Vim integration for fzf
 Plug 'Valloric/ListToggle'            " Key bindings for toggling the quickfix and location list
 Plug 'rakr/vim-one'                   " Atom's default color scheme for Vim
 Plug 'ap/vim-buftabline'              " Show buffers in the tabline
+Plug 'w0rp/ale'                       " Syntax checking for various languages
 
 " Filetype-specific plugins:
 Plug 'freitass/todo.txt-vim'            " Todo.txt filetype plugin and mappings
@@ -42,6 +42,7 @@ Plug 'vim-pandoc/vim-pandoc-syntax'     " Syntax highlighting for Pandoc's Markd
 Plug 'jalvesaq/Nvim-R'                  " Send commands to the R console from Vim and much more
 Plug 'lervag/vimtex'                    " Edit and compile LaTeX files
 Plug 'octol/vim-cpp-enhanced-highlight' " Better syntax highlighting for C++
+Plug 'Rip-Rip/clang_complete'           " Clang-based completion for C++
 
 call plug#end()
 
@@ -190,7 +191,7 @@ if executable('ag')
 endif
 
 " Completion settings:
-" set completeopt-=preview " Do not show completion options in a preview window
+set completeopt-=preview " Do not show completion options in a preview window
 set completeopt+=menuone " Show completion menu even if it has only one entry
 " set completeopt+=noinsert " Do not automatically insert the first match
 " set completeopt+=noselect " Do not automatically select the first match
@@ -343,7 +344,6 @@ nnoremap Q <nop>
 
 " Easier completion:
 inoremap <silent> <C-o> <C-x><C-o>
-inoremap <silent> <C-a> <C-x><C-a>
 inoremap <silent> <C-f> <C-x><C-f>
 inoremap <silent> <C-l> <C-x><C-l>
 
@@ -496,3 +496,14 @@ hi link BufTabLineActive  PmenuSel
 hi link BufTabLineHidden  StatusLine
 hi link BufTabLineFill    TabLineFill
 
+
+
+
+" Clang-complete -------------------------------- {{{2
+let g:clang_library_path = '/usr/lib/llvm-3.8/lib/libclang.so.1'
+let g:clang_complete_macros = 1
+
+" Ale -------------------------------- {{{2
+let g:ale_enabled = 0 " Disable Ale by default
+nnoremap <Leader>al :ALEToggle<CR>
+let g:ale_lint_on_text_changed = 'never' " Only lint when saving a file
