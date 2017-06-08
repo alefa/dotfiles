@@ -361,6 +361,9 @@ nnoremap <Leader>mc :make %<<CR>
 " Run the executable produced from this file:
 nnoremap <Leader>mr :! ./%:r<CR>
 
+" Insert current date:
+inoremap <silent> <C-d> <C-r>=strftime('%F')<CR>
+
 " ---------------------------------------
 " Plugin settings {{{1
 " ---------------------------------------
