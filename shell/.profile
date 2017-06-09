@@ -21,3 +21,7 @@ if [ -d "$HOME/bin" ] ; then
     PATH="$HOME/bin:$PATH"
 fi
 
+# Add ~/.local/bin to PATH:
+if [ -d "$HOME/.local/bin" ] ; then
+    PATH="$PATH:$HOME/.local/bin"
+fi

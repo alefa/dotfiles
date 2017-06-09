@@ -1,12 +1,12 @@
 snippet cpp
 .PHONY: clean
 
-CC=g++
-CFLAGS=-c -Wall
-LDFLAGS=
-SOURCES=$1
-OBJECTS=$(SOURCES:.cc=.o)
-EXECUTABLE=$2
+CC = g++
+CFLAGS = -c -Wall
+LDFLAGS = 
+SOURCES = $1
+OBJECTS = $(SOURCES:.cc = .o)
+EXECUTABLE = $2
 
 all: $(SOURCES) $(EXECUTABLE)
 

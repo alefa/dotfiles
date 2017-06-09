@@ -364,6 +364,9 @@ nnoremap <Leader>mr :! ./%:r<CR>
 " Insert current date:
 inoremap <silent> <C-d> <C-r>=strftime('%F')<CR>
 
+" Set the working directory to the location of the current file:
+nnoremap <Leader>cd :cd %:h<CR>
+
 " ---------------------------------------
 " Plugin settings {{{1
 " ---------------------------------------
@@ -506,5 +509,5 @@ let g:clang_complete_macros = 1
 
 " Ale -------------------------------- {{{2
 let g:ale_enabled = 0 " Disable Ale by default
-nnoremap <silent> <Leader>al :ALEToggle<CR>
+nnoremap <Leader>at :ALEToggle<CR>
 let g:ale_lint_on_text_changed = 'never' " Only lint when saving a file
