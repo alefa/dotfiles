@@ -481,6 +481,7 @@ nnoremap <Leader>k :BD<CR>
 
 nnoremap <silent> <Leader>f :Files<CR>
 nnoremap <silent> <Leader>b :Buffers<CR>
+nnoremap <silent> <Leader>t :Tags<CR>
 
 " Filebeagle -------------------------------- {{{2
 
@@ -505,5 +506,5 @@ let g:clang_complete_macros = 1
 
 " Ale -------------------------------- {{{2
 let g:ale_enabled = 0 " Disable Ale by default
-nnoremap <Leader>al :ALEToggle<CR>
+nnoremap <silent> <Leader>al :ALEToggle<CR>
 let g:ale_lint_on_text_changed = 'never' " Only lint when saving a file
