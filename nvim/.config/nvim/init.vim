@@ -27,6 +27,7 @@ Plug 'kana/vim-textobj-user'          " Easy definition of additional text objec
 Plug 'kana/vim-textobj-indent'        " Text objects based on indentation; requires vim-textobj-user
 Plug 'kana/vim-textobj-line'          " Current-line text objects; requires vim-textobj-user
 Plug 'b4winckler/vim-angry'           " Function argument text object
+Plug 'tommcdo/vim-exchange'           " Exchange two regions of text
 Plug 'qpkorr/vim-bufkill'             " Keep split windows open when closing buffers
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder
 Plug 'junegunn/fzf.vim'               " Vim integration for fzf
@@ -407,6 +408,7 @@ let g:pandoc#keyboard#sections#header_style = "s"
 " Markdown header style; "a" (atx) or "s" (setext, for level 1 and 2)
 let g:pandoc#folding#fdc = 0 " Number of columns used by the fold indicator
 let g:pandoc#keyboard#display_motions = 0 " Don't remap j and k to gj and gk (since I'd rather do that myself)
+let g:pandoc#modules#disabled = ["chdir", "hypertext", "spell"] " Module blacklist
 
 " Fugitive ------------------------ {{{2
 nnoremap <leader>gs :Gstatus<CR>
