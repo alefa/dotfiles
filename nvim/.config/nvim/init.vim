@@ -469,14 +469,6 @@ endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
-" EasyAlign ------------------------------ {{{2
-
-" Start interactive EasyAlign in visual mode (e.g. vipga)
-xmap ga <Plug>(EasyAlign)
-
-" Start interactive EasyAlign for a motion/text object (e.g. gaip)
-nmap ga <Plug>(EasyAlign)
-
 " Buffkill ------------------------------ {{{2
 
 let g:BufKillCreateMappings = 0 " Disable default mappings
