@@ -29,8 +29,6 @@ Plug 'kana/vim-textobj-line'          " Current-line text objects; requires vim-
 Plug 'b4winckler/vim-angry'           " Function argument text object
 Plug 'tommcdo/vim-exchange'           " Exchange two regions of text
 Plug 'qpkorr/vim-bufkill'             " Keep split windows open when closing buffers
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' } " Fuzzy finder
-Plug 'junegunn/fzf.vim'               " Vim integration for fzf
 Plug 'Valloric/ListToggle'            " Key bindings for toggling the quickfix and location list
 Plug 'rakr/vim-one'                   " Atom's default color scheme for Vim
 Plug 'ap/vim-buftabline'              " Show buffers in the tabline
@@ -117,13 +115,15 @@ set autowrite               " Automatically save before commands like :next and 
 set hidden                  " Hide buffers when they are abandoned
 set gdefault                " Replace all occurences of a pattern, not just the first
 set nohlsearch              " Don't highlight search results
-set wildmode=full           " Tab completion: complete the next full match
+set wildignorecase          " Make tab completion case-insensitive
+set wildmode=full           " Tab completion: complete to full match
 set listchars=tab:▸\ ,eol:↵,trail:·,extends:↷,precedes:↶ " Use these characters to show invisible characters
 set splitbelow              " Horizontal splits below the current one (default is above)
 set splitright              " Vertical splits to the right of the current one (default is left)
 set modeline                " For security reasons, modeline is off by default in Debian and Ubuntu
 set lazyredraw              " Pause redrawing the screen when executing macros and functions
 set virtualedit=block       " Allow moving the cursor outside of the text in visual block mode
+set path=$PWD/**            " Include subdirectories in PATH
 
 " Jump to the last position when reopening a file:
 augroup last_pos
@@ -368,6 +368,12 @@ inoremap <silent> <C-d> <C-r>=strftime('%F')<CR>
 " Set the working directory to the location of the current file:
 nnoremap <Leader>cd :cd %:h<CR>
 
+" Find files:
+nnoremap <Leader>f :find 
+nnoremap <Leader>b :ls<CR>:b 
+nnoremap <Leader>tt :tag 
+
+
 " ---------------------------------------
 " Plugin settings {{{1
 " ---------------------------------------
@@ -473,12 +479,6 @@ autocmd! User GoyoLeave nested call <SID>goyo_leave()
 
 let g:BufKillCreateMappings = 0 " Disable default mappings
 nnoremap <Leader>k :BD<CR>
-
-" fzf.vim -------------------------------- {{{2
-
-nnoremap <silent> <Leader>f :Files<CR>
-nnoremap <silent> <Leader>b :Buffers<CR>
-nnoremap <silent> <Leader>t :Tags<CR>
 
 " Filebeagle -------------------------------- {{{2
 
