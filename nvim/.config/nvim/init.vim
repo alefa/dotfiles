@@ -368,10 +368,12 @@ inoremap <silent> <C-d> <C-r>=strftime('%F')<CR>
 " Set the working directory to the location of the current file:
 nnoremap <Leader>cd :cd %:h<CR>
 
-" Find files:
-nnoremap <Leader>f :find 
-nnoremap <Leader>b :ls<CR>:b 
-nnoremap <Leader>tt :tag 
+" Open files:
+nnoremap <Leader>f :find<Space>
+" List open buffers and select one:
+nnoremap <Leader>b :ls<CR>:b<Space>
+" Jump to a tag:
+nnoremap <Leader>tt :tag<Space>
 
 
 " ---------------------------------------
