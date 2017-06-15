@@ -116,7 +116,7 @@ set hidden                  " Hide buffers when they are abandoned
 set gdefault                " Replace all occurences of a pattern, not just the first
 set nohlsearch              " Don't highlight search results
 set wildignorecase          " Make tab completion case-insensitive
-set wildmode=full           " Tab completion: complete to full match
+set wildmode=longest:full   " Tab completion: complete to longest common string and show menu
 set listchars=tab:▸\ ,eol:↵,trail:·,extends:↷,precedes:↶ " Use these characters to show invisible characters
 set splitbelow              " Horizontal splits below the current one (default is above)
 set splitright              " Vertical splits to the right of the current one (default is left)

@@ -201,7 +201,7 @@ man() {
 }
 
 # Show a completion menu when pressing tab:
-bind TAB:menu-complete
+# bind TAB:menu-complete
 
 # When given a directory name, cd to it:
 shopt -s autocd
