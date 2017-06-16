@@ -102,8 +102,8 @@ alias nv3='NVIM_LISTEN_ADDRESS=/tmp/nvim3_socket nvim'
 # Alias for GNU info to use vi-like key bindings:
 alias info='info --vi-keys'
 
-# Alias for opening files with the default program:
-alias open="xdg-open"
+# Alias for opening files with the default program and suppressing error messages:
+alias op="xdg-open 2>/dev/null"
 
 # Open Temp.txt in vim:
 alias vt='nvim /home/gita/Temp.txt'
@@ -184,7 +184,9 @@ then
 fi
 
 # Use autojump for faster directory navigation:
-. /usr/share/autojump/autojump.sh
+if [ -f /usr/share/autojump/autojump.sh ]; then
+	. /usr/share/autojump/autojump.sh
+fi
 
 # Set default pager (to correct an error in ranger's configuration):
 export PAGER=less

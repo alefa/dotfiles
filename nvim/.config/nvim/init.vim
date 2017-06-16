@@ -1,19 +1,11 @@
-" General settings {{{1
-" ---------------------------------------
+" Plugins -------------------- {{{1
 
-" This line should not be removed as it ensures that various options are
-" properly set to work with the Vim-related packages available in Debian.
-runtime! debian.vim
-
-" Vim5 and later versions support syntax highlighting. Uncommenting the next
-" line enables syntax highlighting by default.
-syntax on
-
-" Use Vim-plug to manage plugins -------------------- {{{2
-
+" Use Vim-plug as plugin manager:
 call plug#begin('~/.config/nvim/plugged')
 
-" General plugins:
+" List plugins to be managed:
+
+" General:
 Plug 'tpope/vim-surround'             " Surround text by pairs of delimiters
 Plug 'tpope/vim-repeat'               " Make more things repeatable with the dot command
 Plug 'tpope/vim-unimpaired'           " Lots of useful key bindings
@@ -34,7 +26,7 @@ Plug 'rakr/vim-one'                   " Atom's default color scheme for Vim
 Plug 'ap/vim-buftabline'              " Show buffers in the tabline
 Plug 'w0rp/ale'                       " Syntax checking for various languages
 
-" Filetype-specific plugins:
+" Filetype-specific:
 Plug 'freitass/todo.txt-vim'            " Todo.txt filetype plugin and mappings
 Plug 'vim-pandoc/vim-pandoc'            " Call Pandoc from Vim
 Plug 'vim-pandoc/vim-pandoc-syntax'     " Syntax highlighting for Pandoc's Markdown variant
@@ -45,12 +37,17 @@ Plug 'Rip-Rip/clang_complete'           " Clang-based completion for C++
 
 call plug#end()
 
-" Appearance --------------------------------- {{{2
+" Appearance --------------------------------- {{{1
 
+" Enable syntax highlighting:
+syntax on
+
+" Use true colors (only works in NeoVim and Vim >= 8.0):
 if has('termguicolors')
-	set termguicolors " Use true colors (only works in NeoVim and Vim >= 8.0)
+	set termguicolors
 endif
 
+" Colour scheme:
 set background=dark
 colorscheme one
 
@@ -99,7 +96,8 @@ if has('nvim')
 
 endif
 
-" Basic settings --------------------------- {{{2
+" Basic settings --------------------------- {{{1
+
 set number                  " Absolute line numbers
 set relativenumber          " Relative line numbers
 set nowrap                  " Don't wrap lines by default
@@ -197,7 +195,8 @@ set completeopt+=menuone " Show completion menu even if it has only one entry
 " set completeopt+=noinsert " Do not automatically insert the first match
 " set completeopt+=noselect " Do not automatically select the first match
 
-" Status line ------------------------------ {{{2
+
+" Status line ------------------------------ {{{1
 
 set statusline=                                " Clear the statusline
 set statusline+=\ %f\                          " Path relative to current directory
@@ -209,7 +208,8 @@ set statusline+=%=                             " Right align
 set statusline+=%{fugitive#head()}\ \ \        " Git branch
 set statusline+=line\ %l\/%L\                  " Line number and total no. lines
 
-" File type-specific settings ------------------------------- {{{2
+
+" File type-specific settings ------------------------------- {{{1
 
 " Soft-wrap lines of certain file types and do not show a long-line indicator
 " for these files (everything that is prose, not code):
@@ -268,9 +268,7 @@ augroup quickfix
 	autocmd FileType qf setlocal colorcolumn=""
 augroup END
 
-" ---------------------------------------
-" Custom keyboard mappings and functions {{{1
-" ---------------------------------------
+" Custom keyboard mappings and functions --------------- {{{1
 
 " Remap leader and local leader:
 let mapleader = "\<Space>"
@@ -376,12 +374,9 @@ nnoremap <Leader>b :ls<CR>:b<Space>
 nnoremap <Leader>tt :tag<Space>
 
 
-" ---------------------------------------
-" Plugin settings {{{1
-" ---------------------------------------
+" Plugin settings ------------------- {{{1
 
 " NVim-R ------------------------ {{{2
-
 " Misc options:
 let R_in_buffer = 1 " Run R in a Neovim buffer
 let R_hl_term = 0 " Use syntax highlighting in the R console
@@ -477,17 +472,15 @@ endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
 autocmd! User GoyoLeave nested call <SID>goyo_leave()
-" Buffkill ------------------------------ {{{2
 
+" Buffkill ------------------------------ {{{2
 let g:BufKillCreateMappings = 0 " Disable default mappings
 nnoremap <Leader>k :BD<CR>
 
 " Filebeagle -------------------------------- {{{2
-
 let g:filebeagle_suppress_keymaps = 1
 map <silent> -          <Plug>FileBeagleOpenCurrentBufferDir
 " Buftabline -------------------------------- {{{2
-
 let g:buftabline_numbers=1
 
 " Colors
@@ -496,14 +489,11 @@ hi link BufTabLineActive  PmenuSel
 hi link BufTabLineHidden  StatusLine
 hi link BufTabLineFill    TabLineFill
 
-
-
-
 " Clang-complete -------------------------------- {{{2
 let g:clang_library_path = '/usr/lib/llvm-3.8/lib/libclang.so.1'
 let g:clang_complete_macros = 1
 
-" Ale -------------------------------- {{{2
-let g:ale_enabled = 0 " Disable Ale by default
+" ALE -------------------------------- {{{2
+let g:ale_enabled = 0 " Disable ALE by default
 nnoremap <Leader>at :ALEToggle<CR>
 let g:ale_lint_on_text_changed = 'never' " Only lint when saving a file
