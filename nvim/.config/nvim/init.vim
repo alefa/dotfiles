@@ -13,7 +13,6 @@ Plug 'tpope/vim-commentary'           " Comment and uncomment code
 Plug 'tpope/vim-fugitive'             " Git integration
 Plug 'cohama/lexima.vim'              " Automatically insert closing brackets, quotation marks etc.
 Plug 'SirVer/ultisnips'               " Easily insert often used snippets of text
-Plug 'jeetsukumaran/vim-filebeagle'   " Simple file browser, less buggy than netrw
 Plug 'junegunn/goyo.vim'              " Distraction-free writing mode
 Plug 'kana/vim-textobj-user'          " Easy definition of additional text objects
 Plug 'kana/vim-textobj-indent'        " Text objects based on indentation; requires vim-textobj-user
@@ -25,6 +24,7 @@ Plug 'Valloric/ListToggle'            " Key bindings for toggling the quickfix a
 Plug 'rakr/vim-one'                   " Atom's default color scheme for Vim
 Plug 'ap/vim-buftabline'              " Show buffers in the tabline
 Plug 'w0rp/ale'                       " Syntax checking for various languages
+Plug 'justinmk/vim-dirvish'           " Directory viewer, simpler and less buggy than netrw
 
 " Filetype-specific:
 Plug 'freitass/todo.txt-vim'            " Todo.txt filetype plugin and mappings
@@ -50,10 +50,6 @@ endif
 " Colour scheme:
 set background=dark
 colorscheme one
-
-" Use italics in the terminal:
-set t_ZH=[3m
-set t_ZR=[23m
 
 " Neovim terminal colors (One dark, One light):
 if has('nvim')
@@ -98,30 +94,34 @@ endif
 
 " Basic settings --------------------------- {{{1
 
-set number                  " Absolute line numbers
-set relativenumber          " Relative line numbers
-set nowrap                  " Don't wrap lines by default
-set linebreak               " If lines are wrapped, break them at white spaces
-set breakindent             " Indent wrapped lines
-set colorcolumn=100         " Show an indicator for long lines
-set scrolloff=3             " Show at least three lines above or below the cursor
-set showcmd                 " Show (partial) command in status line
-set showmatch               " Show matching brackets
-set ignorecase              " Do case insensitive matching when searching
-set smartcase               " Do smart case matching when searching
-set autowrite               " Automatically save before commands like :next and :make
-set hidden                  " Hide buffers when they are abandoned
-set gdefault                " Replace all occurences of a pattern, not just the first
-set nohlsearch              " Don't highlight search results
-set wildignorecase          " Make tab completion case-insensitive
-set wildmode=longest:full   " Tab completion: complete to longest common string and show menu
+set number                         " Absolute line numbers
+set relativenumber                 " Relative line numbers
+set nowrap                         " Don't wrap lines by default
+set linebreak                      " If lines are wrapped, break them at white spaces
+set breakindent                    " Indent wrapped lines
+set colorcolumn=100                " Show an indicator for long lines
+set scrolloff=3                    " Show at least three lines above or below the cursor
+set showcmd                        " Show (partial) command in status line
+set showmatch                      " Show matching brackets
+set ignorecase                     " Do case insensitive matching when searching
+set smartcase                      " Do smart case matching when searching
+set autowrite                      " Automatically save before commands like :next and :make
+set hidden                         " Hide buffers when they are abandoned
+set gdefault                       " Replace all occurences of a pattern, not just the first
+set nohlsearch                     " Don't highlight search results
+set wildignorecase                 " Make tab completion case-insensitive
+set wildmode=longest:full          " Tab completion: complete to longest common string and show menu
 set listchars=tab:▸\ ,eol:↵,trail:·,extends:↷,precedes:↶ " Use these characters to show invisible characters
-set splitbelow              " Horizontal splits below the current one (default is above)
-set splitright              " Vertical splits to the right of the current one (default is left)
-set modeline                " For security reasons, modeline is off by default in Debian and Ubuntu
-set lazyredraw              " Pause redrawing the screen when executing macros and functions
-set virtualedit=block       " Allow moving the cursor outside of the text in visual block mode
-set path=$PWD/**            " Include subdirectories in PATH
+set splitbelow                     " Horizontal splits below the current one (default is above)
+set splitright                     " Vertical splits to the right of the current one (default is left)
+set modeline                       " For security reasons, modeline is off by default in Debian and Ubuntu
+set lazyredraw                     " Pause redrawing the screen when executing macros and functions
+set virtualedit=block              " Allow moving the cursor outside of the text in visual block mode
+set path=.,**                      " Search path for :find and friends
+set clipboard^=unnamedplus,unnamed " Use the system clipboard
+
+" Ignored patterns when completing file names:
+set wildignore+=*.o,*.pdf,*.png,*.jpg,*.tar.gz,*.synctex.gz
 
 " Jump to the last position when reopening a file:
 augroup last_pos
@@ -294,13 +294,8 @@ nnoremap <Leader>sv :source $MYVIMRC<CR>
 " Make Y yank until the end of the line:
 nmap Y y$
 
-" Easier shortcuts for copy and paste to/from system clipboard:
-map <Leader>y "+y
-map <Leader>Y "+Y
-map <Leader>p "+p
-map <Leader>P "+P
-" Copy whole file:
-nnoremap <Leader>c gg"+yG
+" Copy the whole file:
+nnoremap <Leader>y ggyG``
 
 " Visually select last-pasted text:
 noremap gV `[v`]
@@ -478,8 +473,8 @@ let g:BufKillCreateMappings = 0 " Disable default mappings
 nnoremap <Leader>k :BD<CR>
 
 " Filebeagle -------------------------------- {{{2
-let g:filebeagle_suppress_keymaps = 1
-map <silent> -          <Plug>FileBeagleOpenCurrentBufferDir
+" let g:filebeagle_suppress_keymaps = 1
+" map <silent> - <Plug>FileBeagleOpenCurrentBufferDir
 " Buftabline -------------------------------- {{{2
 let g:buftabline_numbers=1
 
@@ -497,3 +492,11 @@ let g:clang_complete_macros = 1
 let g:ale_enabled = 0 " Disable ALE by default
 nnoremap <Leader>at :ALEToggle<CR>
 let g:ale_lint_on_text_changed = 'never' " Only lint when saving a file
+
+" Dirvish -------------------------------- {{{2
+let g:dirvish_mode = ':sort r /[^\/]$/'
+
+augroup dirvish
+	autocmd!
+	autocmd FileType dirvish silent keeppatterns g@\v/\.[^\/]+/?$@d
+augroup END
