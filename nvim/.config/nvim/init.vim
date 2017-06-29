@@ -13,6 +13,7 @@ Plug 'tpope/vim-commentary'           " Comment and uncomment code
 Plug 'tpope/vim-fugitive'             " Git integration
 Plug 'cohama/lexima.vim'              " Automatically insert closing brackets, quotation marks etc.
 Plug 'SirVer/ultisnips'               " Easily insert often used snippets of text
+Plug 'jeetsukumaran/vim-filebeagle'   " Simple file browser, less buggy than netrw
 Plug 'junegunn/goyo.vim'              " Distraction-free writing mode
 Plug 'kana/vim-textobj-user'          " Easy definition of additional text objects
 Plug 'kana/vim-textobj-indent'        " Text objects based on indentation; requires vim-textobj-user
@@ -24,7 +25,6 @@ Plug 'Valloric/ListToggle'            " Key bindings for toggling the quickfix a
 Plug 'rakr/vim-one'                   " Atom's default color scheme for Vim
 Plug 'ap/vim-buftabline'              " Show buffers in the tabline
 Plug 'w0rp/ale'                       " Syntax checking for various languages
-Plug 'justinmk/vim-dirvish'           " Directory viewer, simpler and less buggy than netrw
 
 " Filetype-specific:
 Plug 'freitass/todo.txt-vim'            " Todo.txt filetype plugin and mappings
@@ -473,6 +473,9 @@ let g:BufKillCreateMappings = 0 " Disable default mappings
 nnoremap <Leader>k :BD<CR>
 
 " Filebeagle -------------------------------- {{{2
+let g:filebeagle_suppress_keymaps = 1
+map <silent> -          <Plug>FileBeagleOpenCurrentBufferDir
+" Filebeagle -------------------------------- {{{2
 " let g:filebeagle_suppress_keymaps = 1
 " map <silent> - <Plug>FileBeagleOpenCurrentBufferDir
 " Buftabline -------------------------------- {{{2
@@ -493,10 +496,3 @@ let g:ale_enabled = 0 " Disable ALE by default
 nnoremap <Leader>at :ALEToggle<CR>
 let g:ale_lint_on_text_changed = 'never' " Only lint when saving a file
 
-" Dirvish -------------------------------- {{{2
-let g:dirvish_mode = ':sort r /[^\/]$/'
-
-augroup dirvish
-	autocmd!
-	autocmd FileType dirvish silent keeppatterns g@\v/\.[^\/]+/?$@d
-augroup END
