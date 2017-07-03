@@ -475,9 +475,6 @@ nnoremap <Leader>k :BD<CR>
 " Filebeagle -------------------------------- {{{2
 let g:filebeagle_suppress_keymaps = 1
 map <silent> -          <Plug>FileBeagleOpenCurrentBufferDir
-" Filebeagle -------------------------------- {{{2
-" let g:filebeagle_suppress_keymaps = 1
-" map <silent> - <Plug>FileBeagleOpenCurrentBufferDir
 " Buftabline -------------------------------- {{{2
 let g:buftabline_numbers=1
 
