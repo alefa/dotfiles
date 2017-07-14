@@ -180,7 +180,6 @@ let g:netrw_browsex_viewer= "xdg-open"
 " Neovim-specific settings:
 if has('nvim')
 	set inccommand="nosplit"            " Show effects of substitution while typing
-	let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1 " Change cursor shape in insert mode
 endif
 
 " Use Ag (the Silver Searcher) as grep program if it is installed:
@@ -422,7 +421,6 @@ let g:vimtex_view_general_viewer = 'okular'
 let g:vimtex_view_general_options = '--unique @pdf\#src:@line@tex'
 let g:vimtex_view_general_options_latexmk = '--unique'
 let g:vimtex_compiler_progname = 'nvr'
-let g:vimtex_quickfix_latexlog = {'fix_paths':0} " Workaround for Neovim bug which should be fixed in 0.2.0
 let g:vimtex_quickfix_open_on_warning = 0
 let g:vimtex_compiler_latexmk = {
 			\ 'backend' : 'nvim',
