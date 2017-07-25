@@ -119,6 +119,7 @@ set lazyredraw                     " Pause redrawing the screen when executing m
 set virtualedit=block              " Allow moving the cursor outside of the text in visual block mode
 set path=.,**                      " Search path for :find and friends
 set clipboard^=unnamedplus,unnamed " Use the system clipboard
+set mouse=a                        " Enable mouse usage (all modes)
 
 " Ignored patterns when completing file names:
 set wildignore+=*.o,*.pdf,*.png,*.jpg,*.tar.gz,*.synctex.gz
@@ -137,7 +138,6 @@ if !has('nvim')
 	endif
 	set backspace=indent,eol,start " Don't stop backspace at these points
 	set autoindent                 " Automatic indentation
-	set mouse=a                    " Enable mouse usage (all modes)
 	set history=1000               " Longer command history (default is 50 in Vim, 10000 in Neovim)
 	set incsearch                  " Incremental search
 	set laststatus=2               " Always show status line
