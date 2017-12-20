@@ -267,6 +267,12 @@ augroup quickfix
 	autocmd FileType qf setlocal colorcolumn=""
 augroup END
 
+" Settings for Neovim's terminal mode
+augroup term
+	autocmd!
+	autocmd TermOpen * setlocal nonumber norelativenumber
+augroup END
+
 " Custom keyboard mappings and functions --------------- {{{1
 
 " Remap leader and local leader:
