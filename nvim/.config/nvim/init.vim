@@ -34,6 +34,7 @@ Plug 'jalvesaq/Nvim-R'                  " Send commands to the R console from Vi
 Plug 'lervag/vimtex'                    " Edit and compile LaTeX files
 Plug 'octol/vim-cpp-enhanced-highlight' " Better syntax highlighting for C++
 Plug 'Rip-Rip/clang_complete'           " Clang-based completion for C++
+Plug 'junegunn/vim-easy-align'          " Align text around specified symbols
 
 call plug#end()
 
@@ -497,3 +498,6 @@ let g:ale_enabled = 0 " Disable ALE by default
 nnoremap <Leader>at :ALEToggle<CR>
 let g:ale_lint_on_text_changed = 'never' " Only lint when saving a file
 
+" Vim-easy-align -------------------------------- {{{2
+
+nmap ga <Plug>(EasyAlign)
