@@ -123,7 +123,7 @@ set clipboard^=unnamedplus,unnamed " Use the system clipboard
 set mouse=a                        " Enable mouse usage (all modes)
 
 " Ignored patterns when completing file names:
-set wildignore+=*.o,*.pdf,*.png,*.jpg,*.tar.gz,*.synctex.gz
+set wildignore+=*.o,*.tar.gz,*.synctex.gz,*.aux,*.fff,*.fls,*.ttt,*.out,*.bbl,*.blg,*.fdb_latexmk
 
 " Jump to the last position when reopening a file:
 augroup last_pos
