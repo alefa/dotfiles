@@ -468,6 +468,7 @@ function! s:goyo_leave()
 	set showtabline=1
 	let g:buftabline_show=2
 	call buftabline#update(0)
+	set background=dark
 endfunction
 
 autocmd! User GoyoEnter nested call <SID>goyo_enter()
