@@ -111,6 +111,9 @@ alias vt='nvim /home/gita/Temp.txt'
 # Ranger:
 alias rg='ranger --choosedir=$HOME/rangerdir;cd $(cat $HOME/rangerdir)'
 
+# Newsbeuter:
+alias nb='newsbeuter'
+
 # Git aliases:
 alias gcl='git clone'
 alias ga='git add'
