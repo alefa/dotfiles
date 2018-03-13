@@ -35,7 +35,6 @@ Plug 'lervag/vimtex'                    " Edit and compile LaTeX files
 Plug 'octol/vim-cpp-enhanced-highlight' " Better syntax highlighting for C++
 Plug 'Rip-Rip/clang_complete'           " Clang-based completion for C++
 Plug 'junegunn/vim-easy-align'          " Align text around specified symbols
-Plug 'vimwiki/vimwiki', { 'branch': 'dev' } " Personal wiki in Vim
 
 call plug#end()
 
