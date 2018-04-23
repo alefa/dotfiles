@@ -25,3 +25,9 @@ fi
 if [ -d "$HOME/.local/bin" ] ; then
     PATH="$PATH:$HOME/.local/bin"
 fi
+
+# Add Anaconda to PATH (append to give priority to system Python)
+if [ -d "$HOME/anaconda3/bin" ] ; then
+    PATH="$PATH:$HOME/anaconda3/bin"
+	PYTHONPATH="$PYTHONPATH:$HOME/anaconda3/lib/python3.6/site-packages"
+fi
