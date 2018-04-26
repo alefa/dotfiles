@@ -35,6 +35,9 @@ Plug 'lervag/vimtex'                    " Edit and compile LaTeX files
 Plug 'octol/vim-cpp-enhanced-highlight' " Better syntax highlighting for C++
 Plug 'Rip-Rip/clang_complete'           " Clang-based completion for C++
 Plug 'junegunn/vim-easy-align'          " Align text around specified symbols
+Plug 'jalvesaq/vimcmdline'              " Send code to a REPL (e.g. IPython)
+Plug 'davidhalter/jedi-vim'             " Python code completion
+
 
 call plug#end()
 
@@ -254,6 +257,12 @@ let g:tex_flavor="latex"
 augroup netlogo
 	autocmd!
 	autocmd FileType netlogo setlocal expandtab shiftwidth=2 softtabstop=2 commentstring=;%s foldmethod=marker
+augroup END
+
+" Indentation rules for Python files
+augroup python
+	autocmd!
+	autocmd FileType python setlocal expandtab shiftwidth=4 softtabstop=4
 augroup END
 
 " Settings for Vimscript:
@@ -502,3 +511,29 @@ let g:ale_lint_on_text_changed = 'never' " Only lint when saving a file
 " Vim-easy-align -------------------------------- {{{2
 
 nmap ga <Plug>(EasyAlign)
+
+" Vimcmdline -------------------------------- {{{2
+
+" Mappings
+let cmdline_map_start          = '<LocalLeader>rf'
+let cmdline_map_send           = '<LocalLeader>d'
+let cmdline_map_send_and_stay  = '<LocalLeader>l'
+let cmdline_map_source_fun     = '<LocalLeader>f'
+let cmdline_map_send_paragraph = '<LocalLeader>p'
+let cmdline_map_send_block     = '<LocalLeader>b'
+let cmdline_map_quit           = '<LocalLeader>rq'
+
+" Options
+let cmdline_vsplit      = 1      " Split the window vertically
+let cmdline_esc_term    = 0      " Remap <Esc> to :stopinsert in Neovim's terminal
+let cmdline_in_buffer   = 1      " Start the interpreter in a Neovim's terminal
+let cmdline_term_height = 15     " Initial height of interpreter window or pane
+let cmdline_term_width  = 100    " Initial width of interpreter window or pane
+let cmdline_tmp_dir     = '/tmp' " Temporary directory to save files
+let cmdline_outhl       = 1      " Syntax highlight the output
+let cmdline_follow_colorscheme = 1 " Use current color scheme for highlighting
+
+" Interpreters
+let cmdline_app           = {}
+let cmdline_app['python'] = '/home/gita/anaconda3/bin/ipython'
+let cmdline_app['sh']     = 'bash'
