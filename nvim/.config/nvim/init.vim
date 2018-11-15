@@ -518,9 +518,9 @@ nmap ga <Plug>(EasyAlign)
 let cmdline_map_start          = '<LocalLeader>rf'
 let cmdline_map_send           = '<LocalLeader>d'
 let cmdline_map_send_and_stay  = '<LocalLeader>l'
-let cmdline_map_source_fun     = '<LocalLeader>f'
-let cmdline_map_send_paragraph = '<LocalLeader>p'
-let cmdline_map_send_block     = '<LocalLeader>b'
+let cmdline_map_source_fun     = '<LocalLeader>fd'
+let cmdline_map_send_paragraph = '<LocalLeader>pd'
+let cmdline_map_send_block     = '<LocalLeader>bd'
 let cmdline_map_quit           = '<LocalLeader>rq'
 
 " Options

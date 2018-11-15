@@ -70,7 +70,12 @@ esac
 case "$mimetype" in
     # Syntax highlight for text files:
     text/* | */xml)
-        try highlight --out-format=ansi "$path" && { dump | trim; exit 5; } || exit 2;;
+        # try highlight --out-format=ansi "$path" && { dump | trim; exit 5; } || exit 2;;
+		# Code modified to wrap lines (see https://lists.gnu.org/archive/html/ranger-users/2012-10/msg00014.html):
+		highlight --out-format=ansi "$path" -WJ "$width" | head -n $maxln
+        success && exit 4
+        cat "$path" | fmt -s -w "$width"
+        exit 0;;
     # Ascii-previews of images:
     image/*)
         img2txt --gamma=0.6 --width="$width" "$path" && exit 4 || exit 1;;
