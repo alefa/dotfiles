@@ -373,6 +373,9 @@ nnoremap <Leader>mr :! ./%:r<CR>
 " Insert current date:
 inoremap <silent> <C-d> <C-r>=strftime('%F')<CR>
 
+" Insert current time:
+inoremap <silent> <C-t> <C-r>=strftime('%H:%M')<CR>
+
 " Set the working directory to the location of the current file:
 nnoremap <Leader>cd :cd %:h<CR>
 
