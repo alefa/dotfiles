@@ -541,3 +541,7 @@ let cmdline_follow_colorscheme = 1 " Use current color scheme for highlighting
 let cmdline_app           = {}
 let cmdline_app['python'] = '/home/gita/anaconda3/bin/ipython'
 let cmdline_app['sh']     = 'bash'
+
+" Todo.txt-Vim -------------------------------- {{{2
+
+au filetype todo setlocal omnifunc=todo#Complete " Autocompletion for projects and contexts
