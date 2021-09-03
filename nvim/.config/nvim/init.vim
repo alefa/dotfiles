@@ -27,7 +27,7 @@ Plug 'ap/vim-buftabline'              " Show buffers in the tabline
 Plug 'w0rp/ale'                       " Syntax checking for various languages
 
 " Filetype-specific:
-Plug 'freitass/todo.txt-vim'            " Todo.txt filetype plugin and mappings
+Plug 'https://gitlab.com/dbeniamine/todo.txt-vim'  " Todo.txt filetype plugin and mappings
 Plug 'vim-pandoc/vim-pandoc'            " Call Pandoc from Vim
 Plug 'vim-pandoc/vim-pandoc-syntax'     " Syntax highlighting for Pandoc's Markdown variant
 Plug 'jalvesaq/Nvim-R'                  " Send commands to the R console from Vim and much more
@@ -428,7 +428,7 @@ let g:pandoc#keyboard#display_motions = 0 " Don't remap j and k to gj and gk (si
 let g:pandoc#modules#disabled = ["chdir", "hypertext", "spell"] " Module blacklist
 
 " Fugitive ------------------------ {{{2
-nnoremap <leader>gs :Gstatus<CR>
+nnoremap <leader>gs :Git<CR>
 nnoremap <leader>gd :Gdiff<CR>
 nnoremap <leader>gc :Gcommit<CR>
 nnoremap <leader>ga :Gcommit -a<CR>
