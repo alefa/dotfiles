@@ -514,6 +514,7 @@ let g:ale_lint_on_text_changed = 'never' " Only lint when saving a file
 
 " Vim-easy-align -------------------------------- {{{2
 
+xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " Vimcmdline -------------------------------- {{{2
