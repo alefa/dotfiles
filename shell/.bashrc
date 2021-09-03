@@ -136,9 +136,8 @@ alias ggr='git grep -Ii'
 alias grv='git remote -v'
 
 # Aliases for Todo-txt:
-alias t='todo-txt'
-alias tls='todo-txt list'
-alias te='nvim ~/Documents/todo-txt/todo.txt'
+alias te='nvim ~/Nextcloud/Sync/todo-txt/todo.txt'
+alias tl='nvim ~/Documents/todo-txt/todo.txt'
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
