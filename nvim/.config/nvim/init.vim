@@ -406,6 +406,7 @@ let R_objbr_openlist = 0 " Unfold list components in the object browser
 let R_openpdf = 1 " Open PDF after knitting
 let R_openhtml = 1 " Open HTML after knitting
 let R_pdfviewer = "okular" " PDF viewer to use
+let R_nvim_wd = 1 " Start R in Vim's working directory
 
 " Custom shortcuts for frequently used R commands:
 map <silent> <LocalLeader>mh :call RAction("head")<CR>
