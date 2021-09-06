@@ -435,7 +435,6 @@ nnoremap <leader>ga :Gcommit -a<CR>
 
 " VimTeX ------------------------------ {{{2
 let g:vimtex_fold_enabled = 1
-let g:vimtex_fold_envs = 0
 let g:vimtex_quickfix_autojump = 0
 let g:vimtex_view_general_viewer = 'okular'
 let g:vimtex_view_general_options = '--unique @pdf\#src:@line@tex'
