@@ -184,6 +184,7 @@ let g:netrw_browsex_viewer= "xdg-open"
 " Neovim-specific settings:
 if has('nvim')
 	set inccommand="nosplit"            " Show effects of substitution while typing
+	let g:python3_host_prog = '/usr/bin/python3'
 endif
 
 " Use Ag (the Silver Searcher) as grep program if it is installed:
@@ -208,9 +209,29 @@ set statusline+=[%{strlen(&ft)?&ft:'none'},\   " Filetype
 set statusline+=%{strlen(&fenc)?&fenc:&enc},\  " Encoding
 set statusline+=%{&fileformat}]                " File format
 set statusline+=%=                             " Right align
-set statusline+=%{fugitive#head()}\ \ \        " Git branch
+set statusline+=%{b:gitbranch}\ \ \            " Git branch
 set statusline+=line\ %l\/%L\                  " Line number and total no. lines
 
+function! StatuslineGitBranch()
+  let b:gitbranch=""
+  if &modifiable
+    try
+      lcd %:p:h
+    catch
+      return
+    endtry
+    let l:gitrevparse=system("git rev-parse --abbrev-ref HEAD")
+    lcd -
+    if l:gitrevparse!~"fatal: not a git repository"
+      let b:gitbranch="(".substitute(l:gitrevparse, '\n', '', 'g').") "
+    endif
+  endif
+endfunction
+
+augroup GetGitBranch
+  autocmd!
+  autocmd VimEnter,WinEnter,BufEnter * call StatuslineGitBranch()
+augroup END
 
 " File type-specific settings ------------------------------- {{{1
 
@@ -438,7 +459,8 @@ let g:vimtex_fold_enabled = 1
 let g:vimtex_quickfix_autojump = 0
 let g:vimtex_view_general_viewer = 'okular'
 let g:vimtex_view_general_options = '--unique @pdf\#src:@line@tex'
-let g:vimtex_view_general_options_latexmk = '--unique'
+" let g:vimtex_view_general_options_latexmk = '--unique' " Apparently
+" deprecated. Check if there is a different option with similar functionality!
 let g:vimtex_compiler_progname = 'nvr'
 let g:vimtex_quickfix_open_on_warning = 0
 let g:vimtex_compiler_latexmk = {
