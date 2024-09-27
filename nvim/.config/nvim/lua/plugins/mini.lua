@@ -17,23 +17,28 @@ return {
       -- - sr)'  - [S]urround [R]eplace [)] [']
       require('mini.surround').setup()
 
-      -- Simple and easy statusline.
-      --  You could remove this setup call if you don't like it,
-      --  and try some other statusline plugin
+      -- Simple statusline
       local statusline = require 'mini.statusline'
-      -- set use_icons to true if you have a Nerd Font
+      -- Use Nerd Font
       statusline.setup { use_icons = vim.g.have_nerd_font }
-
-      -- You can configure sections in the statusline by overriding their
-      -- default behavior. For example, here we set the section for
-      -- cursor location to LINE:COLUMN
-      ---@diagnostic disable-next-line: duplicate-set-field
+      -- Set the section for cursor location to LINE:COLUMN
       statusline.section_location = function()
         return '%2l:%-2v'
       end
 
-      -- ... and there is more!
-      --  Check out: https://github.com/echasnovski/mini.nvim
+      -- Autopairs
+      require('mini.pairs').setup()
+
+      -- Buffer/tab line
+      require('mini.tabline').setup()
+
+      -- File explorer
+      require('mini.files').setup()
+      vim.keymap.set('n', '<leader>f', ':lua MiniFiles.open()<CR>')
+
+      -- Keep window open when closing buffers
+      require('mini.bufremove').setup()
+
     end,
   },
 }
