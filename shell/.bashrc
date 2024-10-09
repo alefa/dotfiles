@@ -106,7 +106,7 @@ alias info='info --vi-keys'
 alias op="xdg-open 2>/dev/null"
 
 # Open Temp.txt in vim:
-alias vt='nvim /home/gita/Temp.txt'
+alias vt='nvim ~/Temp.txt'
 
 # Ranger:
 alias rg='ranger --choosedir=$HOME/rangerdir;cd $(cat $HOME/rangerdir)'
