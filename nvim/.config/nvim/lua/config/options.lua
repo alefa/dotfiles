@@ -113,7 +113,7 @@ vim.opt.spelllang = "en_gb"
 
 -- Persistent undo
 vim.opt.undofile = true
-vim.opt.undodir = "~/.vim_undo"
+vim.opt.undodir = vim.fs.normalize('~/.nvim_undo')
 vim.opt.undolevels = 1000
 vim.opt.undoreload = 1000
 
