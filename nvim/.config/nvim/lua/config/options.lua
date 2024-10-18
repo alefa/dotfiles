@@ -59,6 +59,9 @@ vim.schedule(function()
 	vim.opt.clipboard = "unnamedplus"
 end)
 
+-- Set python path
+vim.g.python3_host_prog=vim.fn.expand("~/.virtualenvs/neovim/bin/python3")
+
 -- Ignored patterns when completing file names:
 vim.opt.wildignore:append({ '*.o', '*.tar.gz', '*.synctex.gz', '*.aux', '*.fff', '*.fls', '*.ttt', '*.out', '*.bbl', '*.blg', '*.fdb_latexmk' })
 
