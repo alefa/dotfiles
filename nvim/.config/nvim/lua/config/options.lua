@@ -182,3 +182,6 @@ vim.api.nvim_create_autocmd('FileType', {
 
 -- Set filetype of .tex files to LaTeX:
 vim.g.tex_flavor = "latex"
+
+-- Disable language server diagnostics by default
+vim.diagnostic.disable()

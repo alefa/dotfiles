@@ -19,7 +19,14 @@ return {
                             -- returns a table (see below)
                             command = { "bash" },
                         },
+
+                        -- Python: two options
+                        -- TODO: Add option to start iPython without exit confirmation.
+                        -- Using "ipython --no-exit-confirm" gives an error.
+                        -- 1. Always use iPython, as defined by iron.nvim:
                         -- python = fts.python.ipython,
+
+                        -- 2. Run iPython if it is available, otherwise run Python3:
                         python = {
                             command = function()
                                 local ipythonAvailable = vim.fn.executable("ipython") == 1
