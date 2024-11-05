@@ -61,3 +61,6 @@ vim.keymap.set("i", "<C-l>", "<C-x><C-l>", { silent = true})
 
 -- Insert current date
 vim.keymap.set("i", "<C-d>", "<C-r>=strftime('%F')<CR>", { silent = true })
+
+-- Set the working directory to the location of the current file
+vim.keymap.set("n", "<leader>cd", ":cd %:h<CR>")
