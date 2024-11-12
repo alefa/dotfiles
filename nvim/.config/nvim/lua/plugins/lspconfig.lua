@@ -13,7 +13,7 @@ return {
         lazy = false,
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = { "lua_ls", "ruff_lsp", "ruff", "pyright" },
+                ensure_installed = { "lua_ls", "ruff", "pyright" },
                 -- TODO: Try adding "r_language_server" after installing the "devtools" package in R.
             })
         end,
@@ -28,13 +28,8 @@ return {
             lspconfig.lua_ls.setup({
                 capabilities = capabilities,
             })
-            lspconfig.ruff_lsp.setup({
+            lspconfig.ruff.setup({
                 capabilities = capabilities,
-                init_options = {
-                    settings = {
-                        args = {},
-                    }
-                }
             })
             lspconfig.pyright.setup({
                 settings = {
