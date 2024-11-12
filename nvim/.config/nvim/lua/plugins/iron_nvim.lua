@@ -21,19 +21,19 @@ return {
                         },
 
                         -- Python: two options
-                        -- TODO: Add option to start iPython without exit confirmation.
-                        -- Using "ipython --no-exit-confirm" gives an error.
-                        -- 1. Always use iPython, as defined by iron.nvim:
-                        -- python = fts.python.ipython,
-
-                        -- 2. Run iPython if it is available, otherwise run Python3:
+                        -- Always use iPython with custom command
                         python = {
-                            command = function()
-                                local ipythonAvailable = vim.fn.executable("ipython") == 1
-                                local binary = ipythonAvailable and "ipython" or "python3"
-                                return { binary }
-                            end,
+                            command = {"ipython", "--no-autoindent", "--no-confirm-exit"},
+                            format = require("iron.fts.common").bracketed_paste_python
                         },
+                        -- Run iPython if it is available, otherwise run Python3:
+                        -- python = {
+                        --     command = function()
+                        --         local ipythonAvailable = vim.fn.executable("ipython") == 1
+                        --         local binary = ipythonAvailable and "ipython" or "python3"
+                        --         return { binary }
+                        --     end,
+                        -- },
                     },
                     -- How the repl window will be displayed
                     -- See below for more information
@@ -54,9 +54,6 @@ return {
             })
             -- Iron also has a list of commands, see :h iron-commands for all available commands
             vim.keymap.set('n', '<localleader>rs', '<cmd>IronRepl<cr>')
-            vim.keymap.set('n', '<localleader>rr', '<cmd>IronRestart<cr>')
-            vim.keymap.set('n', '<localleader>rf', '<cmd>IronFocus<cr>')
-            vim.keymap.set('n', '<localleader>rh', '<cmd>IronHide<cr>')
         end,
     },
 }
