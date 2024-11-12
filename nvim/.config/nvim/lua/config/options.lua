@@ -120,6 +120,14 @@ vim.opt.undodir = vim.fs.normalize('~/.nvim_undo')
 vim.opt.undolevels = 1000
 vim.opt.undoreload = 1000
 
+-- Code folding
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- Use treesitter
+vim.opt.foldcolumn = "0" -- Turn off foldcolumn
+vim.opt.foldlevel = 99 -- Minimum foldlevel that will be closed by default
+vim.opt.foldlevelstart = 1 -- Initially close all folds except the highest level
+vim.opt.foldnestmax = 4 -- Maximum number of nested folds
+vim.opt.foldtext = "" -- Don't modify the appearance of the first line of each fold
 
 -- Completion settings:
 -- Do not show completion options in a preview window
