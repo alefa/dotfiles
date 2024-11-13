@@ -103,7 +103,7 @@ alias nv3='NVIM_LISTEN_ADDRESS=/tmp/nvim3_socket nvim'
 alias info='info --vi-keys'
 
 # Alias for opening files with the default program and suppressing error messages:
-alias op="xdg-open 2>/dev/null"
+alias o="xdg-open 2>/dev/null"
 
 # Open Temp.txt in vim:
 alias vt='nvim ~/Temp.txt'
@@ -111,29 +111,14 @@ alias vt='nvim ~/Temp.txt'
 # Ranger:
 alias rg='ranger --choosedir=$HOME/rangerdir;cd $(cat $HOME/rangerdir)'
 
-# Newsbeuter:
-alias nb='newsbeuter'
-
 # Git aliases:
-alias gcl='git clone'
-alias ga='git add'
-alias gu='git reset HEAD'
-alias gall='git add -A'
-alias gai='git add -i'
-alias gm='git merge'
-alias gss='git status -s'
-alias gl='git pull'
-alias gp='git push'
-alias gpom='git push origin master'
-alias gc='git commit -v'
-alias gca='git commit -v -a'
-alias gcA='git commit -v --amend'
-alias gco='git checkout'
-alias gcom='git checkout master'
-alias gt='git tag'
+alias gall="git add -A"
+alias gss="git status -s"
 alias gls="git log --graph --pretty=format:'%C(yellow)%h%Creset%C(magenta)%d%Creset %s %C(blue)[%an] %C(cyan)(%cr)%Creset' --abbrev-commit --date=relative"
-alias ggr='git grep -Ii'
-alias grv='git remote -v'
+alias gc="git commit -v"
+alias gp="git push"
+alias gl="git pull"
+alias gu="git reset HEAD"
 
 # Aliases for Todo-txt:
 alias te='nvim ~/Nextcloud/Sync/todo-txt/todo.txt'
