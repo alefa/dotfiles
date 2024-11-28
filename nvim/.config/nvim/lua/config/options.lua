@@ -33,7 +33,7 @@ vim.opt.wildignorecase = true
 -- Tab completion: complete to longest common string and show menu
 vim.opt.wildmode = { longest = 'full' }
 -- Use these characters to show invisible characters
-vim.opt.listchars = { tab = '▸\\ ' }
+vim.opt.listchars = { tab = '▸\\ ' , trail = '·'}
 -- Horizontal splits below the current one (default is above)
 vim.opt.splitbelow = true
 -- Vertical splits to the right of the current one (default is left)
