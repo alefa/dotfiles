@@ -64,8 +64,3 @@ vim.keymap.set("i", "<C-d>", "<C-r>=strftime('%F')<CR>", { silent = true })
 
 -- Set the working directory to the location of the current file
 vim.keymap.set("n", "<leader>cd", ":cd %:h<CR>")
-
--- Toggle language server diagnostics
-vim.keymap.set('n', '<leader>td', function()
-  vim.diagnostic.enable(not vim.diagnostic.is_enabled())
-end, { silent = true, noremap = true })
