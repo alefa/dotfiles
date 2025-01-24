@@ -34,6 +34,15 @@ return {
                         --         return { binary }
                         --     end,
                         -- },
+
+                        -- Quarto: Open a terminal running bash and then
+                        -- start the interpreter for code chunks manually
+                        quarto = {
+                            command = { "bash" },
+                        },
+                        r = {
+                            command = { "R", "--no-save" },
+                        },
                     },
                     -- How the repl window will be displayed
                     -- See below for more information
