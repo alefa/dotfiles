@@ -2,4 +2,5 @@
 return {
 	"freitass/todo.txt-vim",
 	"tpope/vim-unimpaired",
+	"tpope/vim-fugitive",
 }

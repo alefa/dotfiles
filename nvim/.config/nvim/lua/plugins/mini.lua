@@ -32,6 +32,13 @@ return {
       -- Keep window open when closing buffers
       require('mini.bufremove').setup()
 
+      -- Fuzzy search for files, buffers, text etc.
+      require('mini.pick').setup()
+      
+      -- Icon provider
+      require('mini.icons').setup()
+
+
     end,
   },
 }
