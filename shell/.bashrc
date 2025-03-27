@@ -237,3 +237,6 @@ rmvenv() {
       rm -r $VENV_HOME/$1
   fi
 }
+
+# Enable FZF keybindings
+source /usr/share/doc/fzf/examples/key-bindings.bash
