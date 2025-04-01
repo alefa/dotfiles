@@ -34,6 +34,10 @@ return {
 
       -- Fuzzy search for files, buffers, text etc.
       require('mini.pick').setup()
+      vim.keymap.set('n', '<leader>g', ':Pick grep_live<CR>')
+      vim.keymap.set('n', '<leader>b', ':Pick buffers<CR>')
+      vim.keymap.set('n', '<leader>h', ':Pick help<CR>')
+      vim.keymap.set('n', '<leader>s', ':Pick files<CR>')
       
       -- Icon provider
       require('mini.icons').setup()

@@ -7,7 +7,8 @@ vim.keymap.set("n", "<leader>w", "<cmd>w<CR>")
 vim.keymap.set("n", "<leader>k", "<cmd>bdelete<CR>")
 
 -- List open buffers and select one
-vim.keymap.set("n", "<leader>b", ":ls<CR>:b<Space>")
+-- (Removed to use the buffer search of mini.pick instead)
+-- vim.keymap.set("n", "<leader>b", ":ls<CR>:b<Space>")
 
 -- Clear highlights on search when pressing <Esc> in normal mode
 --  See `:help hlsearch`
