@@ -56,7 +56,7 @@ return {
 
 
             -- Keep language server diagnostics off by default, toggle with a key binding
-            vim.diagnostic.disable()
+            vim.diagnostic.enable(false)
             vim.keymap.set('n', '<leader>td', function()
               vim.diagnostic.enable(not vim.diagnostic.is_enabled())
             end, { silent = true, noremap = true })
