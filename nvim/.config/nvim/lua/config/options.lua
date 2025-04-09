@@ -96,7 +96,7 @@ vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- Use treesitter for code 
 vim.opt.foldcolumn = "0" -- Turn off foldcolumn
 vim.opt.foldlevel = 99 -- Minimum foldlevel that will be closed by default
 vim.opt.foldlevelstart = 99 -- Open files with all folds open
-vim.opt.foldnestmax = 4 -- Maximum number of nested folds
+vim.opt.foldnestmax = 20 -- Maximum number of nested folds (20 is the maximum possible value)
 vim.opt.foldtext = "" -- Don't modify the appearance of the first line of each fold
 
 -- Completion settings:
