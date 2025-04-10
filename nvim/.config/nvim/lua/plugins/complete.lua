@@ -1,6 +1,13 @@
 -- Install and configure plugins related to autocompletion
 -- Copied and modified from kickstart-modular.nvim
 return {
+    { -- VimTex completion for bibliographies
+    "micangl/cmp-vimtex",
+    ft = "tex",
+    config = function()
+        require('cmp_vimtex').setup({})
+    end,
+    },
   { -- Autocompletion
     'hrsh7th/nvim-cmp',
     event = 'InsertEnter',
@@ -106,6 +113,7 @@ return {
           { name = 'nvim_lsp' },
           { name = 'luasnip' },
           { name = 'path' },
+          { name = 'vimtex' },
         },
       }
     end,

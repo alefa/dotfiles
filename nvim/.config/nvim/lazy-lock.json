@@ -2,6 +2,7 @@
   "LuaSnip": { "branch": "master", "commit": "c9b9a22904c97d0eb69ccb9bab76037838326817" },
   "cmp-nvim-lsp": { "branch": "main", "commit": "a8912b88ce488f411177fc8aed358b04dc246d7b" },
   "cmp-path": { "branch": "main", "commit": "c6635aae33a50d6010bf1aa756ac2398a2d54c32" },
+  "cmp-vimtex": { "branch": "master", "commit": "5283bf9108ef33d41e704027b9ef22437ce7a15b" },
   "cmp_luasnip": { "branch": "master", "commit": "98d9cb5c2c38532bd9bdb481067b20fea8f32e90" },
   "indent-blankline.nvim": { "branch": "master", "commit": "005b56001b2cb30bfa61b7986bc50657816ba4ba" },
   "iron.nvim": { "branch": "master", "commit": "93b3b97cf4313613fba5e91055deaf091cd78483" },
@@ -17,5 +18,6 @@
   "otter.nvim": { "branch": "main", "commit": "a7766be1592bfa9e88e67512646e343d0b4b2ff5" },
   "quarto-nvim": { "branch": "main", "commit": "26c7e82de8b98d7f4fabf47e9510e35e4152d273" },
   "todo.txt-vim": { "branch": "master", "commit": "3bb5f9cf0d6c7ee91b476a97054c336104d2b6f5" },
-  "vim-unimpaired": { "branch": "master", "commit": "6d44a6dc2ec34607c41ec78acf81657248580bf1" }
+  "vim-unimpaired": { "branch": "master", "commit": "6d44a6dc2ec34607c41ec78acf81657248580bf1" },
+  "vimtex": { "branch": "master", "commit": "a531f6bf9ce61172e4ea8eea2ecbf59fd08c232a" }
 }

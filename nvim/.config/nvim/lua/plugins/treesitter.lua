@@ -7,6 +7,7 @@ return {
         opts = {
             ensure_installed = { 'bash', 'c', 'diff', 'html', 'lua', 'luadoc', 'markdown',
                 'markdown_inline', 'query', 'vim', 'vimdoc', 'python', 'r' , 'json'},
+            ignore_install = { 'latex' },
             -- Autoinstall languages that are not installed
             auto_install = true,
             highlight = {
