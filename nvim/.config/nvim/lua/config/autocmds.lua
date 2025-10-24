@@ -67,6 +67,19 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+-- Indentation rules for JSON files
+vim.api.nvim_create_augroup('json', { clear = true })
+
+vim.api.nvim_create_autocmd('FileType', {
+  group = 'json',
+  pattern = { 'json', 'hjson' },
+  callback = function()
+    vim.opt_local.expandtab = true
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.softtabstop = 2
+  end,
+})
+
 -- Settings for quickfix window:
 vim.api.nvim_create_augroup('quickfix', { clear = true })
 
