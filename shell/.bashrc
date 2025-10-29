@@ -114,9 +114,11 @@ alias rg='ranger --choosedir=$HOME/rangerdir;cd $(cat $HOME/rangerdir)'
 # Git aliases:
 alias gall="git add -A"
 alias gss="git status -s"
-alias gls="git log --graph --pretty=format:'%C(yellow)%h%Creset%C(magenta)%d%Creset %s %C(blue)[%an] %C(cyan)(%cr)%Creset' --abbrev-commit --date=relative"
+alias gla="git log --graph --pretty=format:'%C(yellow)%h%Creset%C(magenta)%d%Creset %s %C(blue)[%an] %C(cyan)(%cr)%Creset' --abbrev-commit --date=relative"
+alias gls="git log -n 10 --pretty=format:'%C(yellow)%h%Creset%C(magenta)%d%Creset %s %C(blue)[%an] %C(cyan)(%cr)%Creset' --abbrev-commit --date=relative"
 alias gc="git commit -v"
 alias gca="git commit -a"
+alias gcm="git commit -m"
 alias gp="git push"
 alias gl="git pull"
 alias gu="git reset HEAD"
