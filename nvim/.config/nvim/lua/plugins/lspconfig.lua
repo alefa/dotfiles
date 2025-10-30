@@ -13,7 +13,7 @@ return {
         lazy = false,
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = { "lua_ls", "pyright", "r_language_server" },
+                ensure_installed = { "lua_ls", "pyright", "r_language_server", "jsonls" },
             })
         end,
     },
@@ -31,6 +31,9 @@ return {
                 capabilities = capabilities,
             })
             vim.lsp.config('r_language_server', {
+                capabilities = capabilities,
+            })
+            vim.lsp.config('jsonls', {
                 capabilities = capabilities,
             })
 
