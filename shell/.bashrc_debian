@@ -1,9 +1,6 @@
-# ~/.bashrc
-
-# Source global definitions
-if [ -f /etc/bashrc ]; then
-    . /etc/bashrc
-fi
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
 
 # If not running interactively, don't do anything
 case $- in
@@ -33,6 +30,49 @@ shopt -s checkwinsize
 # make less more friendly for non-text input files, see lesspipe(1)
 #[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
+# set variable identifying the chroot you work in (used in the prompt below)
+if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm-color) color_prompt=yes;;
+esac
+
+# uncomment for a colored prompt, if the terminal has the capability; turned
+# off by default to not distract the user: the focus in a terminal window
+# should be on the output of commands, not on the prompt
+force_color_prompt=yes
+
+if [ -n "$force_color_prompt" ]; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+	# We have color support; assume it's compliant with Ecma-48
+	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+	# a case would tend to support setf rather than setaf.)
+	color_prompt=yes
+    else
+	color_prompt=
+    fi
+fi
+
+if [ "$color_prompt" = yes ]; then
+	# Red bold prompt with working directory in blue and git branch in purple:
+    PS1='${debian_chroot:+($debian_chroot)}\[\033[1;31m\]\u@\h\[\033[00m\]:\[\033[0;34m\]\W\[\033[00m\]\[\033[0;35m\]$(__git_ps1 "(%s)")\[\033[00m\]\$ '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\W$(__git_ps1 "(%s)")\$ '
+fi
+unset color_prompt force_color_prompt
+
+# If this is an xterm set the title to user@host:dir
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;${debian_chroot:+($debian_chroot)}\u@\h: \w\a\]$PS1"
+    ;;
+*)
+    ;;
+esac
+
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
@@ -49,6 +89,15 @@ fi
 alias ll='ls -l'
 alias la='ls -lA'
 alias l='ls -CF'
+
+# Alias for LaTeX files in Neovim:
+# (to make Synctex backward search find the correct Neovim instance)
+alias nvt='NVIM_LISTEN_ADDRESS=/tmp/nvim_tex_socket nvim'
+
+# Aliases for Neovim instances with specific server names:
+alias nv1='NVIM_LISTEN_ADDRESS=/tmp/nvim1_socket nvim'
+alias nv2='NVIM_LISTEN_ADDRESS=/tmp/nvim2_socket nvim'
+alias nv3='NVIM_LISTEN_ADDRESS=/tmp/nvim3_socket nvim'
 
 # Alias for GNU info to use vi-like key bindings:
 alias info='info --vi-keys'
@@ -110,6 +159,28 @@ fi
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 
+# NVim-R setup:
+# Change the TERM environment variable (to get 256 colors) and make Vim
+# connecting to X Server even if running in a terminal emulator (to get
+# dynamic update of syntax highlight and Object Browser):
+if [ "x$DISPLAY" != "x" ]
+then
+   if [ "screen" = "$TERM" ]
+   then
+       export TERM=screen-256color
+   else
+       export TERM=xterm-256color
+   fi
+fi
+
+# Use autojump for faster directory navigation:
+if [ -f /usr/share/autojump/autojump.sh ]; then
+	. /usr/share/autojump/autojump.sh
+fi
+
+# Set default pager (to correct an error in ranger's configuration):
+export PAGER=less
+
 # Enable coloured man pages:
 man() {
     env LESS_TERMCAP_md=$'\E[01;34m' \
@@ -126,11 +197,6 @@ man() {
 
 # When given a directory name, cd to it:
 shopt -s autocd
-
-# Enable fzf shell integration if fzf is installed
-if command -v fzf >/dev/null 2>&1; then
-  eval "$(fzf --bash)"
-fi
 
 # Python 3 venv wrapper
 # Code from https://gist.github.com/benlubas/5b5e38ae27d9bb8b5c756d8371e238e6
@@ -174,3 +240,10 @@ rmvenv() {
       rm -r $VENV_HOME/$1
   fi
 }
+
+# Enable FZF keybindings
+source /usr/share/doc/fzf/examples/key-bindings.bash
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

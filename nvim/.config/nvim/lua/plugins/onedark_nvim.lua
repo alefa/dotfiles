@@ -1,10 +1,14 @@
--- One Dark color scheme for Neovim
+-- One Dark (and Light) color scheme for Neovim
 return {
 	{
-		"navarasu/onedark.nvim",
+        "navarasu/onedark.nvim",
 		priority = 1000, -- Make sure to load this before all the other start plugins.
-		init = function()
-			vim.cmd.colorscheme("onedark")
-		end,
+        lazy = false,
+        config = function()
+            require('onedark').setup {
+                style = 'dark'
+            }
+            require('onedark').load()
+        end
 	},
 }

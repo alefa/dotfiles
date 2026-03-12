@@ -13,7 +13,9 @@ return {
         lazy = false,
         config = function()
             require("mason-lspconfig").setup({
-                ensure_installed = { "lua_ls", "pyright", "r_language_server", "jsonls" },
+                ensure_installed = { "lua_ls", "pyright",
+                -- "r_language_server",
+                "jsonls" },
             })
         end,
     },
