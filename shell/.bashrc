@@ -174,3 +174,6 @@ rmvenv() {
       rm -r $VENV_HOME/$1
   fi
 }
+
+# Created by `pipx` on 2026-04-13 15:04:40
+export PATH="$PATH:/home/gbenadi/.local/bin"
