@@ -1,5 +1,13 @@
 # ~/.bashrc
 
+# Prompt modifications:
+# Shorten working directory (number of levels)
+PROMPT_DIRTRIM=3
+# Load script for git status information
+. ~/.git-prompt.sh
+# Custom prompt with git branch
+PROMPT_COMMAND='PS1_CMD1=$(__git_ps1 " (%s)")'; PS1='\[\e[35;1m\]\u\[\e[39m\]@\[\e[94m\]\H\[\e[39m\]:\[\e[92m\]\w\[\e[91m\]${PS1_CMD1}\[\e[0m\] '
+
 # Source global definitions
 if [ -f /etc/bashrc ]; then
     . /etc/bashrc
@@ -176,4 +184,15 @@ rmvenv() {
 }
 
 # Created by `pipx` on 2026-04-13 15:04:40
-export PATH="$PATH:/home/gbenadi/.local/bin"
+export PATH="$PATH:/home/gita/.local/bin"
+
+# R user library location
+export R_LIBS_USER=~/R-library
+
+
+# Additions for nvm (Node.js version manager).
+# Outcommented because loading nvm makes bash really slow to load.
+# TODO: Find a way to lazy-load nvm.
+# export NVM_DIR="$HOME/.nvm"
+# [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+# [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
