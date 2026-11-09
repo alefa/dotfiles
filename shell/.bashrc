@@ -196,3 +196,7 @@ export R_LIBS_USER=~/R-library
 # export NVM_DIR="$HOME/.nvm"
 # [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 # [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# Use system daemon instead of user session ("qemu:///session") for virsh
+# See KVM VM Network Troubleshooting on OpenWebUI for more info
+export LIBVIRT_DEFAULT_URI="qemu:///system"
